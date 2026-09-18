@@ -1,9 +1,30 @@
+:root {
+  --bg-color: #F5F2EC;
+  --nav-pill-bg: #BDCFED;
+  --text-primary: #000000;
+  --text-secondary: #1F1F1F;
+  --text-navy: #001135;
+  --font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   margin: 0;
-  background: #f9fafb;
-  color: #111827;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
 }

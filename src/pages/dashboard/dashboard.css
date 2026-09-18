@@ -1,0 +1,165 @@
+.dashboard-hero {
+  width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 3rem 2rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: calc(100vh - 140px);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Left Column: Typography */
+.hero-content {
+  flex: 1 1 44%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 490px;
+  z-index: 2;
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-header-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
+
+.hero-role-tag {
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary, #000000);
+  line-height: 1.2;
+}
+
+.hero-statement-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  font-size: clamp(1.85rem, 3.1vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+  color: var(--text-primary, #000000);
+}
+
+.hero-statement-title span {
+  display: block;
+}
+
+.hero-description {
+  font-size: clamp(1.1rem, 1.7vw, 1.4rem);
+  font-weight: 600;
+  line-height: 1.42;
+  color: var(--text-primary, #000000);
+  margin-top: 2rem;
+}
+
+/* Right Column: Portrait Photo with feather mask */
+.hero-image-wrapper {
+  flex: 1 1 56%;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-portrait-card {
+  position: relative;
+  width: 100%;
+  max-width: 670px;
+  border-radius: 0 46px 46px 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Left edge soft feather gradient mask matching Figma */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.12) 5%, rgba(0, 0, 0, 0.75) 16%, #000000 24%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.12) 5%, rgba(0, 0, 0, 0.75) 16%, #000000 24%);
+  transition: transform 0.4s ease;
+}
+
+.hero-portrait-card:hover {
+  transform: scale(1.01);
+}
+
+.hero-portrait-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1010 / 835;
+  object-fit: cover;
+  display: block;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .dashboard-hero {
+    gap: 1.5rem;
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  .hero-content {
+    min-height: 420px;
+  }
+
+  .hero-header-group {
+    gap: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-hero {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1.5rem 1.25rem 3rem;
+    gap: 2.5rem;
+    min-height: auto;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    min-height: auto;
+    gap: 2rem;
+  }
+
+  .hero-header-group {
+    gap: 2rem;
+  }
+
+  .hero-description {
+    margin-top: 0;
+  }
+
+  .hero-image-wrapper {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-portrait-card {
+    max-width: 100%;
+    border-radius: 28px;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}

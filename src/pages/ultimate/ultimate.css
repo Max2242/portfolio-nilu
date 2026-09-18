@@ -1,0 +1,505 @@
+/* ==========================================================================
+   Ultimate Frisbee Memory Scrapbook Page Styles
+   Figma Reference: Node 1-1062 ("Frisbee")
+   ========================================================================== */
+
+.ultimate-page-wrapper {
+  width: 100%;
+  min-height: calc(100vh - 120px);
+  padding: 0.5rem 1.5rem 4rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Scrapbook Page Banner / Info Header */
+.scrapbook-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1600px;
+  margin-bottom: 0.75rem;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+
+.scrapbook-title-group {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.scrapbook-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #001135;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.scrapbook-subhead {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #16285A;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.scrapbook-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4A5B78;
+  background: rgba(189, 207, 237, 0.35);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 17, 53, 0.08);
+}
+
+.hint-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #001135;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* ==========================================================================
+   Desktop Scrapbook Canvas (Proportional 1900 x 1080)
+   ========================================================================== */
+.scrapbook-canvas-container {
+  width: 100%;
+  max-width: 1640px;
+  position: relative;
+  margin: 0 auto;
+  padding-bottom: 3.5rem;
+}
+
+.scrapbook-canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1900 / 1080;
+  background: transparent;
+  overflow: visible;
+}
+
+/* Individual Polaroid Scrapbook Cards on Desktop Canvas */
+.scrapbook-polaroid {
+  position: absolute;
+  cursor: pointer;
+  background: #ffffff;
+  padding: 4px 4px 10px 4px;
+  border-radius: 2px;
+  box-shadow: 0 5px 16px rgba(0, 17, 53, 0.12), 0 1px 4px rgba(0, 17, 53, 0.06);
+  transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1),
+              box-shadow 0.35s ease,
+              z-index 0s;
+  outline: none;
+  user-select: none;
+}
+
+.scrapbook-polaroid:hover,
+.scrapbook-polaroid:focus-visible {
+  transform: scale(1.04) translateY(-6px) rotate(0deg) !important;
+  box-shadow: 0 20px 42px rgba(0, 17, 53, 0.24), 0 6px 14px rgba(0, 17, 53, 0.12);
+  z-index: 50 !important;
+}
+
+.scrapbook-polaroid:focus-visible {
+  border: 2px solid #001135;
+}
+
+/* Centerpiece stage photo gets specialized styling */
+.scrapbook-polaroid.is-centerpiece {
+  padding: 4px 4px 12px 4px;
+  box-shadow: 0 8px 24px rgba(0, 17, 53, 0.14), 0 2px 6px rgba(0, 17, 53, 0.08);
+}
+
+.scrapbook-polaroid.is-centerpiece:hover,
+.scrapbook-polaroid.is-centerpiece:focus-visible {
+  transform: scale(1.025) translateY(-4px) rotate(0deg) !important;
+  box-shadow: 0 24px 50px rgba(0, 17, 53, 0.25), 0 8px 18px rgba(0, 17, 53, 0.12);
+}
+
+.polaroid-img-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #EAE6DD;
+  display: block;
+}
+
+.polaroid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.scrapbook-polaroid:hover .polaroid-img {
+  transform: scale(1.02);
+}
+
+/* Subtle memory badge on hover */
+.polaroid-hover-badge {
+  position: absolute;
+  bottom: 0.25rem;
+  left: 0.4rem;
+  right: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.scrapbook-polaroid:hover .polaroid-hover-badge,
+.scrapbook-polaroid:focus-visible .polaroid-hover-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.badge-tag {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #001135;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge-expand-icon {
+  width: 15px;
+  height: 15px;
+  fill: #001135;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Handwritten Doodle Annotations & Curved Arrows
+   ========================================================================== */
+.doodle-annotation {
+  position: absolute;
+  pointer-events: auto;
+  user-select: none;
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.doodle-annotation:hover {
+  transform: scale(1.06);
+}
+
+.doodle-img-asset {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 17, 53, 0.08));
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Mobile & Tablet Responsive Scrapbook Layout (< 1024px)
+   ========================================================================== */
+.scrapbook-mobile-feed {
+  display: none;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (max-width: 1023px) {
+  .scrapbook-canvas-container {
+    display: none;
+  }
+
+  .scrapbook-mobile-feed {
+    display: flex;
+  }
+
+  .ultimate-page-wrapper {
+    padding: 0.5rem 1rem 5rem;
+  }
+
+  .scrapbook-heading {
+    font-size: 1.3rem;
+  }
+
+  .scrapbook-subhead {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .scrapbook-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+
+  .scrapbook-hint {
+    font-size: 0.68rem;
+    padding: 0.25rem 0.65rem;
+  }
+}
+
+.mobile-card {
+  background: #ffffff;
+  padding: 0.75rem 0.75rem 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 17, 53, 0.09);
+  border: 1px solid rgba(0, 17, 53, 0.08);
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mobile-card:active,
+.mobile-card:focus-visible {
+  transform: scale(0.98);
+}
+
+.mobile-card.tilt-left {
+  transform: rotate(-1deg);
+}
+
+.mobile-card.tilt-right {
+  transform: rotate(1deg);
+}
+
+.mobile-card-img-wrap {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #EAE6DD;
+  position: relative;
+}
+
+.mobile-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mobile-card-meta {
+  margin-top: 0.85rem;
+  padding: 0 0.25rem;
+}
+
+.mobile-card-tag {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #001135;
+  display: block;
+  line-height: 1.1;
+}
+
+.mobile-card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #16285A;
+  margin: 0.25rem 0 0.15rem;
+}
+
+.mobile-card-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  color: #4A5B78;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Interactive Lightbox Modal
+   ========================================================================== */
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 17, 53, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lightbox-dialog {
+  background: #ffffff;
+  border-radius: 16px;
+  max-width: 960px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  animation: scaleUp 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.94) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0, 17, 53, 0.08);
+  border: none;
+  color: #001135;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.lightbox-close-btn:hover {
+  background: rgba(0, 17, 53, 0.16);
+  transform: scale(1.08);
+}
+
+.lightbox-media {
+  width: 100%;
+  background: #111B2C;
+  max-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 17, 53, 0.55);
+  color: #ffffff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.lightbox-nav-btn:hover {
+  background: rgba(0, 17, 53, 0.85);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-nav-btn.prev {
+  left: 1rem;
+}
+
+.lightbox-nav-btn.next {
+  right: 1rem;
+}
+
+.lightbox-info {
+  padding: 1.5rem 1.75rem 2rem;
+  background: #ffffff;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.lightbox-tag-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.lightbox-handwritten-tag {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #001135;
+  line-height: 1;
+}
+
+.lightbox-counter {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6C7D93;
+}
+
+.lightbox-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #001135;
+  margin: 0.2rem 0 0.5rem;
+}
+
+.lightbox-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  color: #364863;
+  line-height: 1.6;
+  margin: 0;
+}
