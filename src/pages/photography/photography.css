@@ -1,41 +1,45 @@
 /* ==========================================================================
    Photography Page Styles
-   Figma Reference: Node 1-1027 ("photograph")
+   Figma Reference: Node 1-1027 ("photograph", 1900 x 3906)
+   Complete Editorial Gallery (24 Curated Frames across 8 Rows)
    ========================================================================== */
 
 .photography-page-wrapper {
   width: 100%;
   min-height: calc(100vh - 120px);
-  padding: 1rem 2rem 5rem;
+  padding: 1rem 2rem 6rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  background: #F5F2EC;
 }
 
-/* Page Subhead / Info Bar */
+/* Page Subhead / Header Bar */
 .photography-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   max-width: 1650px;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   padding: 0 0.5rem;
   box-sizing: border-box;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .photography-title-group {
   display: flex;
   align-items: baseline;
-  gap: 0.85rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
 .photography-heading {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 800;
   color: #001135;
   letter-spacing: -0.02em;
@@ -53,6 +57,60 @@
   text-transform: uppercase;
 }
 
+/* Category Filter Navigation */
+.photography-filter-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-pill-btn {
+  background: rgba(0, 17, 53, 0.04);
+  border: 1px solid rgba(0, 17, 53, 0.1);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #4A5B78;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.02em;
+}
+
+.filter-pill-btn:hover {
+  background: rgba(0, 17, 53, 0.08);
+  color: #001135;
+  border-color: rgba(0, 17, 53, 0.2);
+  transform: translateY(-1px);
+}
+
+.filter-pill-btn.is-active {
+  background: #001135;
+  color: #ffffff;
+  border-color: #001135;
+  box-shadow: 0 4px 12px rgba(0, 17, 53, 0.2);
+}
+
+.pill-count {
+  font-size: 0.7rem;
+  font-weight: 700;
+  opacity: 0.75;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+}
+
+.filter-pill-btn:not(.is-active) .pill-count {
+  background: rgba(0, 17, 53, 0.08);
+  color: #001135;
+}
+
+/* Hint Badge */
 .photography-hint {
   display: inline-flex;
   align-items: center;
@@ -83,39 +141,59 @@
 }
 
 /* ==========================================================================
-   Editorial Photo Grid (Desktop 1900 x 1080 Proportional)
+   Editorial Photo Grid (Desktop 1900 x 3906 Proportionate Architecture)
    ========================================================================== */
 .photography-gallery {
   width: 100%;
   max-width: 1650px;
   display: flex;
   flex-direction: column;
-  gap: 4.375rem; /* ~70px proportional gap */
+  gap: 4.375rem; /* ~70px proportional gap between rows in Figma */
   margin: 0 auto;
 }
 
-/* Row 1: 3 Landscape Photographs (524 x 315 px, aspect-ratio 524 / 315) */
-.gallery-row-landscape {
+/* General Gallery Row */
+.gallery-row {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2.375rem; /* ~38px proportional gap */
+  gap: 2.375rem; /* ~38px proportional gap between columns */
+  align-items: center;
+}
+
+/* Landscape Row (524 x 315 px, ratio ~1.66) */
+.gallery-row-landscape {
   width: 100%;
 }
 
-/* Row 2: 2 Portrait Photographs (398 x 541 px, aspect-ratio 398 / 541) */
+/* Portrait Row (398 x 541 px, ratio ~0.735) */
 .gallery-row-portrait {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.375rem;
   width: 100%;
 }
 
 .portrait-slot {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
-/* Individual Photo Card */
+.landscape-slot {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Filtered Responsive Grid */
+.gallery-filtered-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.375rem;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Individual Photo Card Styling
+   ========================================================================== */
 .photo-card {
   position: relative;
   width: 100%;
@@ -127,14 +205,15 @@
   box-shadow: 0 6px 20px rgba(0, 17, 53, 0.08);
   border: 1px solid rgba(0, 17, 53, 0.06);
   transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1),
-              box-shadow 0.4s ease;
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
 }
 
 .photo-card:hover,
 .photo-card:focus-visible {
   transform: translateY(-5px) scale(1.015);
   box-shadow: 0 18px 40px rgba(0, 17, 53, 0.18), 0 4px 10px rgba(0, 17, 53, 0.08);
-  border-color: rgba(0, 17, 53, 0.18);
+  border-color: rgba(0, 17, 53, 0.2);
 }
 
 .photo-card:focus-visible {
@@ -166,11 +245,11 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .photo-card:hover .photo-img {
-  transform: scale(1.035);
+  transform: scale(1.04);
 }
 
 /* Hover Overlay Badge */
@@ -179,8 +258,8 @@
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0, 17, 53, 0.75) 0%,
-    rgba(0, 17, 53, 0.2) 40%,
+    rgba(0, 17, 53, 0.85) 0%,
+    rgba(0, 17, 53, 0.3) 45%,
     transparent 100%
   );
   display: flex;
@@ -198,6 +277,18 @@
   opacity: 1;
 }
 
+.photo-badge-cat {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #BDCFED;
+  margin-bottom: 0.2rem;
+  transform: translateY(6px);
+  transition: transform 0.3s ease;
+}
+
 .photo-badge-title {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.05rem;
@@ -205,22 +296,24 @@
   color: #ffffff;
   margin: 0 0 0.2rem;
   transform: translateY(6px);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease 0.03s;
 }
 
 .photo-badge-location {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.8rem;
   font-weight: 500;
-  color: #BDCFED;
+  color: #CBD7E8;
   margin: 0;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   transform: translateY(6px);
-  transition: transform 0.3s ease 0.05s;
+  transition: transform 0.3s ease 0.06s;
 }
 
+.photo-card:hover .photo-badge-cat,
 .photo-card:hover .photo-badge-title,
 .photo-card:hover .photo-badge-location,
+.photo-card:focus-visible .photo-badge-cat,
 .photo-card:focus-visible .photo-badge-title,
 .photo-card:focus-visible .photo-badge-location {
   transform: translateY(0);
@@ -231,51 +324,68 @@
    ========================================================================== */
 @media (max-width: 1023px) {
   .photography-page-wrapper {
-    padding: 0.5rem 1.25rem 5rem;
+    padding: 0.75rem 1.25rem 5rem;
+  }
+
+  .photography-header {
+    margin-bottom: 2rem;
   }
 
   .photography-gallery {
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
-  .gallery-row-landscape {
+  .gallery-row {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 
-  /* 3rd landscape photo takes full width on tablet */
-  .gallery-row-landscape .photo-card:nth-child(3) {
+  /* 3rd photo takes full width across 2 columns on tablet */
+  .gallery-row .photo-slot:nth-child(3) {
     grid-column: span 2;
-  }
-
-  .gallery-row-portrait {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  .portrait-slot {
-    justify-content: stretch;
   }
 
   .photo-card.is-portrait {
     max-width: 100%;
   }
+
+  .gallery-filtered-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
 }
 
 @media (max-width: 640px) {
+  .photography-page-wrapper {
+    padding: 0.5rem 1rem 4rem;
+  }
+
   .photography-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.65rem;
-    margin-bottom: 1.5rem;
+    gap: 0.85rem;
+    margin-bottom: 1.75rem;
   }
 
   .photography-heading {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
   }
 
   .photography-subhead {
     font-size: 0.78rem;
+  }
+
+  .photography-filter-nav {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.35rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filter-pill-btn {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.75rem;
+    white-space: nowrap;
   }
 
   .photography-hint {
@@ -283,28 +393,33 @@
     padding: 0.25rem 0.65rem;
   }
 
-  .gallery-row-landscape {
+  .gallery-row {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
-  .gallery-row-landscape .photo-card:nth-child(3) {
+  .gallery-row .photo-slot:nth-child(3) {
     grid-column: span 1;
   }
 
-  .gallery-row-portrait {
+  .gallery-filtered-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
   .photo-overlay-badge {
     opacity: 1;
     background: linear-gradient(
       to top,
-      rgba(0, 17, 53, 0.72) 0%,
-      transparent 60%
+      rgba(0, 17, 53, 0.78) 0%,
+      transparent 65%
     );
     padding: 0.85rem 1rem;
+  }
+
+  .photo-badge-cat {
+    font-size: 0.62rem;
+    transform: translateY(0);
   }
 
   .photo-badge-title {
@@ -324,9 +439,9 @@
 .photo-lightbox-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 17, 53, 0.82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(0, 17, 53, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -348,7 +463,7 @@
   width: 100%;
   max-height: 92vh;
   overflow-y: auto;
-  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.55);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -367,7 +482,7 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: rgba(0, 17, 53, 0.08);
+  background: rgba(0, 17, 53, 0.1);
   border: none;
   color: #001135;
   font-size: 1.4rem;
@@ -381,13 +496,13 @@
 }
 
 .photo-lightbox-close-btn:hover {
-  background: rgba(0, 17, 53, 0.16);
+  background: rgba(0, 17, 53, 0.2);
   transform: scale(1.08);
 }
 
 .photo-lightbox-media {
   width: 100%;
-  background: #0B1424;
+  background: #081120;
   max-height: 68vh;
   display: flex;
   align-items: center;
@@ -409,23 +524,23 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 17, 53, 0.55);
+  background: rgba(0, 17, 53, 0.6);
   color: #ffffff;
   border: none;
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
   backdrop-filter: blur(8px);
 }
 
 .photo-lightbox-nav-btn:hover {
-  background: rgba(0, 17, 53, 0.88);
+  background: rgba(0, 17, 53, 0.9);
   transform: translateY(-50%) scale(1.1);
 }
 
