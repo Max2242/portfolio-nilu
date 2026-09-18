@@ -69,10 +69,10 @@ import './photography.css'
 
 export interface PhotoItem {
   id: string
-  title: string
-  location: string
-  category: 'Architecture' | 'Nature & Wildlife' | 'Street & People' | 'Macro & Still Life'
-  description: string
+  title?: string
+  location?: string
+  category?: 'Architecture' | 'Nature & Wildlife' | 'Street & People' | 'Macro & Still Life'
+  description?: string
   orientation: 'landscape' | 'portrait'
   row: number
   col: number
@@ -85,9 +85,9 @@ const allPhotos: PhotoItem[] = [
   // --- ROW 1 (Landscape) ---
   {
     id: 'heritage-lake-haveli',
-    title: 'Heritage by the Lake',
-    location: 'Lake Pichola Ghats • Udaipur, Rajasthan',
-    category: 'Architecture',
+    // title: 'Heritage by the Lake',
+    // location: 'Lake Pichola Ghats • Udaipur, Rajasthan',
+    // category: 'Architecture',
     description:
       'Warm afternoon sunlight casting golden tones across historic lakefront havelis and ornate chatris, with ripples reflecting centuries of Mewar architectural grandeur.',
     orientation: 'landscape',
@@ -99,9 +99,9 @@ const allPhotos: PhotoItem[] = [
   },
   {
     id: 'sparrows-stone-ledge',
-    title: 'Urban Perch',
-    location: 'Campus Courtyard • Ahmedabad',
-    category: 'Nature & Wildlife',
+    // title: 'Urban Perch',
+    // location: 'Campus Courtyard • Ahmedabad',
+    // category: 'Nature & Wildlife',
     description:
       'A quiet morning moment observing house sparrows gathered in a disciplined row on a minimalist concrete ledge, framed by textured architectural walls.',
     orientation: 'landscape',
@@ -113,9 +113,9 @@ const allPhotos: PhotoItem[] = [
   },
   {
     id: 'old-city-bazaar-bells',
-    title: 'Old City Bazaar',
-    location: 'Walled City • Ahmedabad',
-    category: 'Street & People',
+    // title: 'Old City Bazaar',
+    // location: 'Walled City • Ahmedabad',
+    // category: 'Street & People',
     description:
       'Terracotta bells, woven baskets, and traditional earthen crafts strung between vintage balconies across a narrow, sun-drenched old-city alleyway.',
     orientation: 'landscape',
@@ -129,9 +129,9 @@ const allPhotos: PhotoItem[] = [
   // --- ROW 2 (Portrait) ---
   {
     id: 'petals-rain-puddle',
-    title: 'Petals in Rain Ripple',
-    location: 'Monsoon Garden • Campus',
-    category: 'Macro & Still Life',
+    // title: 'Petals in Rain Ripple',
+    // location: 'Monsoon Garden • Campus',
+    // category: 'Macro & Still Life',
     description:
       'Delicate fallen yellow leaves and a central pink blossom floating on rainwater, reflecting the gentle ripples and overcast sky after a sudden monsoon shower.',
     orientation: 'portrait',
@@ -143,9 +143,9 @@ const allPhotos: PhotoItem[] = [
   },
   {
     id: 'butterfly-macro-blossom',
-    title: 'Butterfly on Blossom',
-    location: 'Botanical Garden • Ahmedabad',
-    category: 'Macro & Still Life',
+    // title: 'Butterfly on Blossom',
+    // location: 'Botanical Garden • Ahmedabad',
+    // category: 'Macro & Still Life',
     description:
       'Close-up study of a Common Pierrot butterfly resting gracefully on fresh flower buds, highlighting intricate black, white, and bright orange wing patterns.',
     orientation: 'portrait',
@@ -157,9 +157,9 @@ const allPhotos: PhotoItem[] = [
   },
   {
     id: 'golden-wasp-macro',
-    title: 'Golden Hornet on Slate',
-    location: 'Field Sanctuary • Gandhinagar',
-    category: 'Nature & Wildlife',
+    // title: 'Golden Hornet on Slate',
+    // location: 'Field Sanctuary • Gandhinagar',
+    // category: 'Nature & Wildlife',
     description:
       'Intricate macro exploration of a golden wasp resting poised on deep dark slate stone, revealing delicate wing veins and amber armored segments.',
     orientation: 'portrait',
@@ -173,9 +173,9 @@ const allPhotos: PhotoItem[] = [
   // --- ROW 3 (Landscape) ---
   {
     id: 'puppy-purple-foliage',
-    title: 'Slumber in Purple Flora',
-    location: 'Botanical Nursery • Ahmedabad',
-    category: 'Nature & Wildlife',
+    // title: 'Slumber in Purple Flora',
+    // location: 'Botanical Nursery • Ahmedabad',
+    // category: 'Nature & Wildlife',
     description:
       'A tender morning moment capturing a pale sleeping pup curled peacefully amidst a dense blanket of rich purple and burgundy foliage.',
     orientation: 'landscape',
@@ -187,9 +187,9 @@ const allPhotos: PhotoItem[] = [
   },
   {
     id: 'bamboo-grove-sunlight',
-    title: 'Golden Canopy Bamboo',
-    location: 'Sabarmati Riverfront • Ahmedabad',
-    category: 'Nature & Wildlife',
+    // title: 'Golden Canopy Bamboo',
+    // location: 'Sabarmati Riverfront • Ahmedabad',
+    // category: 'Nature & Wildlife',
     description:
       'Warm rays of low-angled afternoon sunlight filtering through slender bamboo culms, casting geometric shadows and vibrant amber illumination.',
     orientation: 'landscape',
@@ -201,9 +201,9 @@ const allPhotos: PhotoItem[] = [
   },
   {
     id: 'chameleon-stone-ledge',
-    title: 'The Sentinel Chameleon',
-    location: 'Old Garden Wall • Ahmedabad',
-    category: 'Nature & Wildlife',
+    // title: 'The Sentinel Chameleon',
+    // location: 'Old Garden Wall • Ahmedabad',
+    // category: 'Nature & Wildlife',
     description:
       'An Indian chameleon poised patiently along a cracked concrete garden wall, basking beneath the emerald leaf canopy with serene focus.',
     orientation: 'landscape',
@@ -217,9 +217,9 @@ const allPhotos: PhotoItem[] = [
   // --- ROW 4 (Portrait) ---
   {
     id: 'fort-courtyard-flag',
-    title: 'Citadel Skyward',
-    location: 'Mehrangarh Ramparts • Jodhpur',
-    category: 'Architecture',
+    // title: 'Citadel Skyward',
+    // location: 'Mehrangarh Ramparts • Jodhpur',
+    // category: 'Architecture',
     description:
       'A striking upward low-angle perspective looking through monumental red sandstone courtyard arches towards a saffron flag fluttering in the deep blue sky.',
     orientation: 'portrait',
@@ -231,9 +231,9 @@ const allPhotos: PhotoItem[] = [
   },
   {
     id: 'ornate-haveli-jharokha',
-    title: 'The Peacock Jharokha',
-    location: 'City Palace Facade • Udaipur',
-    category: 'Architecture',
+    // title: 'The Peacock Jharokha',
+    // location: 'City Palace Facade • Udaipur',
+    // category: 'Architecture',
     description:
       'Masterful heritage craft showcased in an overhanging stone balcony (jharokha) inlaid with glass mosaic and intricate peacock and lotus carvings.',
     orientation: 'portrait',
@@ -245,9 +245,9 @@ const allPhotos: PhotoItem[] = [
   },
   {
     id: 'elderly-man-shutter',
-    title: 'Patience at the Shutter',
-    location: 'Old Bazaar • Pushkar',
-    category: 'Street & People',
+    // title: 'Patience at the Shutter',
+    // location: 'Old Bazaar • Pushkar',
+    // category: 'Street & People',
     description:
       'An elderly local resident in traditional dhoti and warm jacket seated peacefully outside a weathered corrugated shopfront in late afternoon amber light.',
     orientation: 'portrait',
@@ -261,9 +261,9 @@ const allPhotos: PhotoItem[] = [
   // --- ROW 5 (Landscape) ---
   {
     id: 'elder-street-chair',
-    title: 'Streetcorner Pause',
-    location: 'Heritage Quarter • Jaipur',
-    category: 'Street & People',
+    // title: 'Streetcorner Pause',
+    // location: 'Heritage Quarter • Jaipur',
+    // category: 'Street & People',
     description:
       'An elder in crisp white traditional kurta and turban seated thoughtfully on a wooden chair outside an open street bazaar during midday bustle.',
     orientation: 'landscape',
@@ -275,9 +275,9 @@ const allPhotos: PhotoItem[] = [
   },
   {
     id: 'artisan-glass-workshop',
-    title: 'The Alchemist Workshop',
-    location: 'Old City Alley • Ahmedabad',
-    category: 'Street & People',
+    // title: 'The Alchemist Workshop',
+    // location: 'Old City Alley • Ahmedabad',
+    // category: 'Street & People',
     description:
       'A shopkeeper seated cross-legged on a wooden platform within his atmospheric store, surrounded by vintage glass bottles and glistening sunlight.',
     orientation: 'landscape',
@@ -289,9 +289,9 @@ const allPhotos: PhotoItem[] = [
   },
   {
     id: 'child-colorful-hammock',
-    title: 'Colors of Childhood',
-    location: 'Artisan Settlement • Gandhinagar',
-    category: 'Street & People',
+    // title: 'Colors of Childhood',
+    // location: 'Artisan Settlement • Gandhinagar',
+    // category: 'Street & People',
     description:
       'A curious, wide-eyed toddler resting comfortably inside a bright, rainbow-striped cloth sling suspended securely across an open courtyard.',
     orientation: 'landscape',
@@ -305,9 +305,9 @@ const allPhotos: PhotoItem[] = [
   // --- ROW 6 (Portrait) ---
   {
     id: 'fallen-plumeria-water',
-    title: 'Floating Plumeria',
-    location: 'Adalaj Stepwell Garden • Gandhinagar',
-    category: 'Macro & Still Life',
+    // title: 'Floating Plumeria',
+    // location: 'Adalaj Stepwell Garden • Gandhinagar',
+    // category: 'Macro & Still Life',
     description:
       'A single pristine white frangipani blossom with delicate pink tip floating on calm rainwater, mirrored in crystal-clear reflection.',
     orientation: 'portrait',
@@ -319,9 +319,9 @@ const allPhotos: PhotoItem[] = [
   },
   {
     id: 'floral-dress-hands',
-    title: 'Resting Indigo Hands',
-    location: 'Textile Studio • Ahmedabad',
-    category: 'Macro & Still Life',
+    // title: 'Resting Indigo Hands',
+    // location: 'Textile Studio • Ahmedabad',
+    // category: 'Macro & Still Life',
     description:
       'A serene, painterly portrait focusing on clasped hands with traditional silver rings and bracelets resting against handcrafted floral block-printed cotton.',
     orientation: 'portrait',
@@ -333,9 +333,9 @@ const allPhotos: PhotoItem[] = [
   },
   {
     id: 'overhead-coffee-cup',
-    title: 'Warmth in Ceramic',
-    location: 'Artisan Café • CEPT Campus',
-    category: 'Macro & Still Life',
+    // title: 'Warmth in Ceramic',
+    // location: 'Artisan Café • CEPT Campus',
+    // category: 'Macro & Still Life',
     description:
       'A meditative top-down view of open palms cradling a warm, rustic ceramic cup with rich crema and aromatic coffee notes.',
     orientation: 'portrait',
@@ -349,9 +349,9 @@ const allPhotos: PhotoItem[] = [
   // --- ROW 7 (Landscape) ---
   {
     id: 'brutalist-concrete-canopy',
-    title: 'Concrete & Canopy',
-    location: 'Louis Kahn CEPT Enclave • Ahmedabad',
-    category: 'Architecture',
+    // title: 'Concrete & Canopy',
+    // location: 'Louis Kahn CEPT Enclave • Ahmedabad',
+    // category: 'Architecture',
     description:
       'Iconic modernist exposed brick and concrete architecture emerging organically through a dense, timeless canopy of mature neem and banyan trees.',
     orientation: 'landscape',
@@ -363,9 +363,9 @@ const allPhotos: PhotoItem[] = [
   },
   {
     id: 'hound-slumber-floor',
-    title: 'Grey Tile Contours',
-    location: 'Design Studio Courtyard • Ahmedabad',
-    category: 'Nature & Wildlife',
+    // title: 'Grey Tile Contours',
+    // location: 'Design Studio Courtyard • Ahmedabad',
+    // category: 'Nature & Wildlife',
     description:
       'Top-down geometric composition of a slender golden-tan hound curled gracefully in repose on cool, dark slate floor tiles.',
     orientation: 'landscape',
@@ -377,9 +377,9 @@ const allPhotos: PhotoItem[] = [
   },
   {
     id: 'three-youths-wall',
-    title: 'Brotherhood on the Corner',
-    location: 'Pol Neighborhood • Ahmedabad',
-    category: 'Street & People',
+    // title: 'Brotherhood on the Corner',
+    // location: 'Pol Neighborhood • Ahmedabad',
+    // category: 'Street & People',
     description:
       'A candid portrait of three young companions standing casually against a textured earthen wall in the warm evening dusk of the historic pols.',
     orientation: 'landscape',
@@ -393,9 +393,9 @@ const allPhotos: PhotoItem[] = [
   // --- ROW 8 (Landscape) ---
   {
     id: 'festival-procession-crowd',
-    title: 'Rhythm of the Procession',
-    location: 'Uttarayan Festivities • Old City',
-    category: 'Street & People',
+    // title: 'Rhythm of the Procession',
+    // location: 'Uttarayan Festivities • Old City',
+    // category: 'Street & People',
     description:
       'Vibrant communal energy captured during festival celebrations as crowds in colorful attire traverse the historic street lanes under festive skies.',
     orientation: 'landscape',
@@ -407,9 +407,9 @@ const allPhotos: PhotoItem[] = [
   },
   {
     id: 'reclaimed-jeep-jungle',
-    title: 'Nature Reclaiming Steel',
-    location: 'Forest Trail • Gir Foothills',
-    category: 'Nature & Wildlife',
+    // title: 'Nature Reclaiming Steel',
+    // location: 'Forest Trail • Gir Foothills',
+    // category: 'Nature & Wildlife',
     description:
       'An abandoned vintage safari vehicle nestled within a dense jungle hollow, steadily enveloped by climbing vines, moss, and monsoon greenery.',
     orientation: 'landscape',
@@ -421,9 +421,9 @@ const allPhotos: PhotoItem[] = [
   },
   {
     id: 'lotus-muddy-puddle',
-    title: 'The Whimsical Puddle',
-    location: 'Monsoon Lane • Sanand',
-    category: 'Macro & Still Life',
+    // title: 'The Whimsical Puddle',
+    // location: 'Monsoon Lane • Sanand',
+    // category: 'Macro & Still Life',
     description:
       'A playful and unexpected sight of a bright pink reversible octopus plush floating resiliently in a calm rain puddle, reflecting overcast skies.',
     orientation: 'landscape',
@@ -447,19 +447,8 @@ const figmaRows = [
   { rowNum: 8, type: 'landscape' as const, photos: allPhotos.slice(21, 24) },
 ]
 
-const categories = [
-  'All',
-  'Architecture',
-  'Nature & Wildlife',
-  'Street & People',
-  'Macro & Still Life',
-] as const
-
-type CategoryFilter = (typeof categories)[number]
-
 function PhotographyPage() {
   const [selectedPhotoId, setSelectedPhotoId] = useState<string | null>(null)
-  const [activeFilter, setActiveFilter] = useState<CategoryFilter>('All')
 
   // Find currently active photo object and index within allPhotos
   const activePhotoIndex = useMemo(() => {
@@ -512,141 +501,68 @@ function PhotographyPage() {
     setSelectedPhotoId(allPhotos[prevIdx].id)
   }
 
-  // Filtered rows vs full editorial rows
-  const isFiltering = activeFilter !== 'All'
-  const filteredPhotos = useMemo(() => {
-    if (!isFiltering) return allPhotos
-    return allPhotos.filter((p) => p.category === activeFilter)
-  }, [activeFilter, isFiltering])
-
   return (
     <div className="photography-page-wrapper" aria-label="Photography Portfolio">
       {/* Editorial Header bar */}
       <header className="photography-header">
         <div className="photography-title-group">
           <h1 className="photography-heading">Photography</h1>
-          <span className="photography-subhead">Visual Studies • 24 Curated Frames</span>
-        </div>
-
-        {/* Filter Pills */}
-        <nav className="photography-filter-nav" aria-label="Filter photography categories">
-          {categories.map((cat) => {
-            const count = cat === 'All' ? allPhotos.length : allPhotos.filter((p) => p.category === cat).length
-            const isSelected = activeFilter === cat
-            return (
-              <button
-                key={cat}
-                type="button"
-                className={`filter-pill-btn ${isSelected ? 'is-active' : ''}`}
-                onClick={() => setActiveFilter(cat)}
-                aria-pressed={isSelected}
-              >
-                <span>{cat}</span>
-                <span className="pill-count">{count}</span>
-              </button>
-            )
-          })}
-        </nav>
-
-        <div className="photography-hint" aria-hidden="true">
-          <span className="hint-dot" />
-          <span>Scroll to explore all 24 pictures</span>
         </div>
       </header>
 
       {/* Editorial Photography Gallery (Figma Node 1-1027 1900x3906 Layout) */}
       <main className="photography-gallery" role="region" aria-label="Curated Photography Gallery">
-        {!isFiltering ? (
-          // Default: Exact 8-Row Figma Editorial Structure
-          figmaRows.map((row) => (
-            <section
-              key={`row-${row.rowNum}`}
-              className={`gallery-row ${row.type === 'landscape' ? 'gallery-row-landscape' : 'gallery-row-portrait'}`}
-              aria-label={`Row ${row.rowNum}: ${row.type} collection`}
-            >
-              {row.photos.map((photo) => (
-                <div
-                  key={photo.id}
-                  className={`photo-slot ${row.type === 'portrait' ? 'portrait-slot' : 'landscape-slot'}`}
-                >
-                  <article
-                    className={`photo-card ${photo.orientation === 'landscape' ? 'is-landscape' : 'is-portrait'}`}
-                    onClick={() => openLightbox(photo.id)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault()
-                        openLightbox(photo.id)
-                      }
-                    }}
-                    tabIndex={0}
-                    role="button"
-                    aria-haspopup="dialog"
-                    aria-label={`View photo: ${photo.title}, ${photo.location}`}
-                  >
-                    <div className="photo-img-wrap">
-                      <picture>
-                        <source srcSet={photo.webp} type="image/webp" />
-                        <img
-                          src={photo.png}
-                          alt={photo.alt}
-                          className="photo-img"
-                          loading={photo.row <= 2 ? 'eager' : 'lazy'}
-                          decoding="async"
-                        />
-                      </picture>
-                    </div>
-
-                    <div className="photo-overlay-badge" aria-hidden="true">
-                      <span className="photo-badge-cat">{photo.category}</span>
-                      <h2 className="photo-badge-title">{photo.title}</h2>
-                      <p className="photo-badge-location">{photo.location}</p>
-                    </div>
-                  </article>
-                </div>
-              ))}
-            </section>
-          ))
-        ) : (
-          // Filtered view: Responsive Grid
-          <section className="gallery-filtered-grid" aria-label={`Filtered: ${activeFilter}`}>
-            {filteredPhotos.map((photo) => (
-              <article
+        {figmaRows.map((row) => (
+          <section
+            key={`row-${row.rowNum}`}
+            className={`gallery-row ${row.type === 'landscape' ? 'gallery-row-landscape' : 'gallery-row-portrait'}`}
+            aria-label={`Row ${row.rowNum}: ${row.type} collection`}
+          >
+            {row.photos.map((photo) => (
+              <div
                 key={photo.id}
-                className={`photo-card ${photo.orientation === 'landscape' ? 'is-landscape' : 'is-portrait'}`}
-                onClick={() => openLightbox(photo.id)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault()
-                    openLightbox(photo.id)
-                  }
-                }}
-                tabIndex={0}
-                role="button"
-                aria-haspopup="dialog"
-                aria-label={`View photo: ${photo.title}, ${photo.location}`}
+                className={`photo-slot ${row.type === 'portrait' ? 'portrait-slot' : 'landscape-slot'}`}
               >
-                <div className="photo-img-wrap">
-                  <picture>
-                    <source srcSet={photo.webp} type="image/webp" />
-                    <img
-                      src={photo.png}
-                      alt={photo.alt}
-                      className="photo-img"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </picture>
-                </div>
+                <article
+                  className={`photo-card ${photo.orientation === 'landscape' ? 'is-landscape' : 'is-portrait'}`}
+                  onClick={() => openLightbox(photo.id)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      openLightbox(photo.id)
+                    }
+                  }}
+                  tabIndex={0}
+                  role="button"
+                  aria-haspopup="dialog"
+                  aria-label={photo.title ? `View photo: ${photo.title}` : `Photograph ${photo.row}-${photo.col}`}
+                >
+                  <div className="photo-img-wrap">
+                    <picture>
+                      <source srcSet={photo.webp} type="image/webp" />
+                      <img
+                        src={photo.png}
+                        alt={photo.alt}
+                        className="photo-img"
+                        loading={photo.row <= 2 ? 'eager' : 'lazy'}
+                        decoding="async"
+                      />
+                    </picture>
+                  </div>
 
-                <div className="photo-overlay-badge" aria-hidden="true">
-                  <span className="photo-badge-cat">{photo.category}</span>
-                  <h2 className="photo-badge-title">{photo.title}</h2>
-                  <p className="photo-badge-location">{photo.location}</p>
-                </div>
-              </article>
+                  {/* Overlay badge (commented out as title/location/category are disabled) */}
+                  {/* {(photo.title || photo.location || photo.category) && (
+                    <div className="photo-overlay-badge" aria-hidden="true">
+                      {photo.category && <span className="photo-badge-cat">{photo.category}</span>}
+                      {photo.title && <h2 className="photo-badge-title">{photo.title}</h2>}
+                      {photo.location && <p className="photo-badge-location">{photo.location}</p>}
+                    </div>
+                  )} */}
+                </article>
+              </div>
             ))}
           </section>
-        )}
+        ))}
       </main>
 
       {/* Interactive Lightbox Modal */}
@@ -656,7 +572,7 @@ function PhotographyPage() {
           onClick={closeLightbox}
           role="dialog"
           aria-modal="true"
-          aria-label={activePhoto.title}
+          aria-label={activePhoto.title || `Photograph ${(activePhotoIndex ?? 0) + 1}`}
         >
           <div className="photo-lightbox-dialog" onClick={(e) => e.stopPropagation()}>
             <button
@@ -695,14 +611,14 @@ function PhotographyPage() {
 
             <div className="photo-lightbox-info">
               <div className="photo-lightbox-top-row">
-                <span className="photo-lightbox-category">{activePhoto.category}</span>
+                {/* {activePhoto.category && <span className="photo-lightbox-category">{activePhoto.category}</span>} */}
                 <span className="photo-lightbox-counter">
                   {(activePhotoIndex ?? 0) + 1} / {allPhotos.length}
                 </span>
               </div>
-              <h2 className="photo-lightbox-title">{activePhoto.title}</h2>
-              <p className="photo-lightbox-location">{activePhoto.location}</p>
-              <p className="photo-lightbox-desc">{activePhoto.description}</p>
+              {/* {activePhoto.title && <h2 className="photo-lightbox-title">{activePhoto.title}</h2>} */}
+              {/* {activePhoto.location && <p className="photo-lightbox-location">{activePhoto.location}</p>} */}
+              {activePhoto.description && <p className="photo-lightbox-desc">{activePhoto.description}</p>}
             </div>
           </div>
         </div>

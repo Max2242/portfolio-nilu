@@ -16,25 +16,21 @@
   background: #F5F2EC;
 }
 
-/* Page Subhead / Header Bar */
+/* Page Header Bar */
 .photography-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
   max-width: 1650px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   padding: 0 0.5rem;
   box-sizing: border-box;
-  gap: 1.5rem;
-  flex-wrap: wrap;
 }
 
 .photography-title-group {
   display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  flex-wrap: wrap;
+  align-items: center;
 }
 
 .photography-heading {
@@ -47,98 +43,6 @@
   text-transform: uppercase;
 }
 
-.photography-subhead {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #566D8E;
-  margin: 0;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-/* Category Filter Navigation */
-.photography-filter-nav {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.filter-pill-btn {
-  background: rgba(0, 17, 53, 0.04);
-  border: 1px solid rgba(0, 17, 53, 0.1);
-  border-radius: 999px;
-  padding: 0.4rem 0.85rem;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: #4A5B78;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  letter-spacing: 0.02em;
-}
-
-.filter-pill-btn:hover {
-  background: rgba(0, 17, 53, 0.08);
-  color: #001135;
-  border-color: rgba(0, 17, 53, 0.2);
-  transform: translateY(-1px);
-}
-
-.filter-pill-btn.is-active {
-  background: #001135;
-  color: #ffffff;
-  border-color: #001135;
-  box-shadow: 0 4px 12px rgba(0, 17, 53, 0.2);
-}
-
-.pill-count {
-  font-size: 0.7rem;
-  font-weight: 700;
-  opacity: 0.75;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 0.1rem 0.4rem;
-  border-radius: 999px;
-}
-
-.filter-pill-btn:not(.is-active) .pill-count {
-  background: rgba(0, 17, 53, 0.08);
-  color: #001135;
-}
-
-/* Hint Badge */
-.photography-hint {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #4A5B78;
-  background: rgba(189, 207, 237, 0.35);
-  padding: 0.35rem 0.85rem;
-  border-radius: 999px;
-  border: 1px solid rgba(0, 17, 53, 0.08);
-}
-
-.hint-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #001135;
-  animation: pulse-dot 2s infinite ease-in-out;
-}
-
-@keyframes pulse-dot {
-  0%, 100% { opacity: 0.4; transform: scale(0.9); }
-  50% { opacity: 1; transform: scale(1.2); }
-}
 
 /* ==========================================================================
    Editorial Photo Grid (Desktop 1900 x 3906 Proportionate Architecture)

@@ -1,4 +1,4 @@
-import { type ReactElement, useState } from 'react'
+import { type ReactElement, useState, useEffect } from 'react'
 import AboutPage from './pages/about'
 import DashboardPage from './pages/dashboard'
 import PhotographyPage from './pages/photography'
@@ -26,12 +26,30 @@ const pageComponents: Record<Page, ReactElement> = {
 
 function App() {
   const [activePage, setActivePage] = useState<Page>(() => {
-    const hash = window.location.hash.replace('#', '') as Page
+    const hash = window.location.hash.replace('#', '')
+    if (hash.startsWith('projects')) {
+      return 'projects'
+    }
     if (['dashboard', 'projects', 'photography', 'ultimate', 'about'].includes(hash)) {
-      return hash
+      return hash as Page
     }
     return 'dashboard'
   })
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash.startsWith('projects')) {
+        setActivePage('projects')
+      } else if (['dashboard', 'projects', 'photography', 'ultimate', 'about'].includes(hash)) {
+        setActivePage(hash as Page)
+      } else if (!hash) {
+        setActivePage('dashboard')
+      }
+    }
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
 
   const navigateTo = (page: Page) => {
     setActivePage(page)
