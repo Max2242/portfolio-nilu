@@ -23,6 +23,12 @@ import caseStudyGoboultWebp from '../../assets/projects/casestudy-goboult.webp'
 import caseStudyGoboultPng from '../../assets/projects/casestudy-goboult.png'
 
 import './projects.css'
+import './caseStudies/caseStudies.css'
+import { CaseStudy360Palette } from './caseStudies/CaseStudy360Palette'
+import { CaseStudyOtoSpeaker } from './caseStudies/CaseStudyOtoSpeaker'
+import { CaseStudyEcoMove } from './caseStudies/CaseStudyEcoMove'
+import { CaseStudyPinboard } from './caseStudies/CaseStudyPinboard'
+import { CaseStudyGoboult } from './caseStudies/CaseStudyGoboult'
 
 interface ProjectItem {
   id: string
@@ -270,17 +276,14 @@ function ProjectsPage() {
           </div>
         </header>
 
-        {/* Scrollable Case Study Body */}
+        {/* Scrollable Case Study Body - Semantic HTML & Modular Assets */}
         <main className="casestudy-body">
-          <article className="casestudy-canvas-wrap" tabIndex={0} aria-label={activeProject.caseStudyAlt}>
-            <picture>
-              <source srcSet={activeProject.caseStudyWebp} type="image/webp" />
-              <img
-                src={activeProject.caseStudyPng}
-                alt={activeProject.caseStudyAlt}
-                className="casestudy-img"
-              />
-            </picture>
+          <article className="casestudy-semantic-wrap" tabIndex={0} aria-label={`${activeProject.title} Case Study`}>
+            {activeProject.id === '360-palette' && <CaseStudy360Palette />}
+            {(activeProject.id === 'muji' || activeProject.id === 'oto-speaker') && <CaseStudyOtoSpeaker />}
+            {activeProject.id === 'ecomove' && <CaseStudyEcoMove />}
+            {(activeProject.id === 'convertable-pinboard' || activeProject.id === 'pinboard') && <CaseStudyPinboard />}
+            {activeProject.id === 'goboult' && <CaseStudyGoboult />}
           </article>
 
           {/* Next Project Footer Teaser Card */}

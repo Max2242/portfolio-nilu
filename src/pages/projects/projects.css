@@ -350,12 +350,20 @@
 /* Case Study Body & High-Resolution Artwork */
 .casestudy-body {
   width: 100%;
-  max-width: 1360px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 1.25rem;
+  padding: 0;
   box-sizing: border-box;
+}
+
+.casestudy-semantic-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: none;
 }
 
 .casestudy-canvas-wrap {
