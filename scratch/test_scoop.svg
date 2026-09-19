@@ -1,0 +1,5 @@
+<svg width="180" height="200" viewBox="0 0 180 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="200" fill="#F5F2EC" />
+  <!-- Curve attached to container at x=100 -->
+  <path d="M 10 25 C 65 25 100 55 100 120 L 180 120 L 180 25 Z" fill="#B6B8A0" />
+</svg>
