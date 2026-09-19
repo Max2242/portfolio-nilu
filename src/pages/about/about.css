@@ -1,0 +1,259 @@
+/* About Page Container - Exactly Matching Figma Layout with Vertical Scroll */
+.about-page-wrapper {
+  width: 100%;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2.5rem 2rem 5rem;
+  box-sizing: border-box;
+  overflow-y: visible;
+}
+
+.about-main-container {
+  width: 100%;
+  max-width: 1180px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 3.5rem;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Left Column: Typography & Inline Connect Buttons
+   ========================================================================== */
+.about-text-column {
+  flex: 1 1 54%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  animation: aboutFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Hand-written greeting matching the casual marker font */
+.about-greeting-title {
+  font-family: 'Gochi Hand', 'Patrick Hand', 'Caveat', cursive, sans-serif;
+  font-size: clamp(2.6rem, 4.4vw, 3.8rem);
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  margin: 0 0 2rem 0;
+}
+
+/* Story paragraphs with the vertical coral accent line */
+.about-story-group {
+  position: relative;
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3.2rem;
+}
+
+.about-story-group::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 42px;
+  width: 2px;
+  height: 180px;
+  background-color: #E06D53;
+  border-radius: 328px;
+}
+
+.about-story-p {
+  font-family: var(--font-family);
+  font-size: clamp(0.92rem, 1.15vw, 1.04rem);
+  font-weight: 500;
+  line-height: 1.62;
+  color: #1f1f1f;
+  margin: 0;
+  letter-spacing: 0.005em;
+}
+
+/* "Let's connect and create more!" heading */
+.about-connect-heading {
+  font-family: var(--font-family);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  line-height: 1.16;
+  color: #000000;
+  margin: 0 0 1.8rem 0;
+  letter-spacing: -0.01em;
+}
+
+.about-connect-heading span {
+  display: block;
+}
+
+/* Inline Connect Buttons Row */
+.about-connect-buttons-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.connect-pill-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 9999px;
+  outline: none;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.connect-pill-link:hover {
+  transform: translateY(-3px) scale(1.03);
+  filter: drop-shadow(0 8px 16px rgba(0, 17, 53, 0.15));
+}
+
+.connect-pill-link:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.connect-pill-img {
+  height: 48px;
+  width: auto;
+  display: block;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Right Column: Exact Composite Image of Nilakshi on Grass with Mosaic Squares
+   ========================================================================== */
+.about-image-column {
+  flex: 1 1 46%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+  animation: aboutFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.1s;
+}
+
+.about-artwork-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-artwork-img {
+  width: 100%;
+  height: auto;
+  max-height: 640px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 14px 30px rgba(0, 17, 53, 0.05));
+  transition: transform 0.4s ease;
+}
+
+.about-artwork-wrapper:hover .about-artwork-img {
+  transform: scale(1.015);
+}
+
+/* ==========================================================================
+   Keyframe Animations & Responsive Breakpoints
+   ========================================================================== */
+@keyframes aboutFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-main-container {
+    gap: 2.5rem;
+  }
+
+  .about-text-column {
+    max-width: 500px;
+  }
+
+  .about-story-group {
+    margin-bottom: 2.5rem;
+  }
+
+  .about-artwork-wrapper {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 860px) {
+  .about-page-wrapper {
+    padding: 1.5rem 1.25rem 4rem;
+  }
+
+  .about-main-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 3.5rem;
+  }
+
+  .about-text-column {
+    max-width: 100%;
+  }
+
+  .about-image-column {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .about-artwork-wrapper {
+    max-width: 380px;
+  }
+
+  .about-connect-buttons-row {
+    gap: 1.2rem;
+  }
+
+  .connect-pill-img {
+    height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-greeting-title {
+    font-size: 2.35rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-story-group {
+    padding-left: 1.1rem;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-connect-heading {
+    font-size: 1.75rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .about-connect-buttons-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .connect-pill-img {
+    height: 42px;
+  }
+
+  .about-artwork-wrapper {
+    max-width: 320px;
+  }
+}
