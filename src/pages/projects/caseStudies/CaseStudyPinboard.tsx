@@ -14,9 +14,7 @@ import photosMockupsWebp from '../../../assets/projects/casestudies/pinboard/pho
 import photosMockupsPng from '../../../assets/projects/casestudies/pinboard/photos-mockups.png'
 import photosFinalWebp from '../../../assets/projects/casestudies/pinboard/photos-final-prototype.webp'
 import photosFinalPng from '../../../assets/projects/casestudies/pinboard/photos-final-prototype.png'
-import renderStudioWebp from '../../../assets/projects/casestudies/pinboard/render-studio.webp'
 import renderStudioPng from '../../../assets/projects/casestudies/pinboard/render-studio.png'
-import catStretchingWebp from '../../../assets/projects/casestudies/pinboard/cat-stretching.webp'
 import catStretchingPng from '../../../assets/projects/casestudies/pinboard/cat-stretching.png'
 
 export const CaseStudyPinboard: React.FC = () => {
@@ -262,43 +260,47 @@ export const CaseStudyPinboard: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. Final Showcase in Blue Container */}
-      <section className="cs-final-split-section cs-bg-cobalt">
-        <div className="cs-final-image-col">
-          <picture>
-            <source srcSet={renderStudioWebp} type="image/webp" />
+      {/* 6. Final Showcase: Left Studio Photo + Right Bleed Blue Card with Cat */}
+      <div className="cs-pinboard-showcase-bleed-wrap">
+        <section className="cs-pinboard-showcase-inner">
+          <div className="cs-pinboard-showcase-photo-wrap">
             <img
               src={renderStudioPng}
               alt="Convertible Pinboard deployed in modern educational studio"
-              className="cs-studio-photo"
+              className="cs-pinboard-studio-img"
             />
-          </picture>
-        </div>
-
-        <div className="cs-final-text-col">
-          <h2 className="cs-handwritten-title cs-text-white">CONVERTIBLE PIN BOARD</h2>
-
-          <p className="cs-final-desc cs-text-light">
-            I tested the final prototype with 23 users. Most responded well to the dual-use
-            function, one user called the re-usability "the best part," another said it felt
-            less bulky once folded down.
-          </p>
-
-          <p className="cs-final-desc cs-text-light">
-            But it wasn't a clean result. Several people found the folded-table position
-            uncomfortable, especially anyone taller, the fold angle doesn't leave enough
-            legroom underneath. That's the fix I'd prioritize next: adjusting the angle
-            without losing the compactness that made the fold work in the first place.
-          </p>
-
-          <div className="cs-cat-bottom-right">
-            <picture>
-              <source srcSet={catStretchingWebp} type="image/webp" />
-              <img src={catStretchingPng} alt="Cat stretching on blue floor" className="cs-cat-img" />
-            </picture>
           </div>
-        </div>
-      </section>
+
+          <div className="cs-pinboard-showcase-blue-card">
+            <div className="cs-pinboard-showcase-text-wrap">
+              <h2 className="cs-pinboard-handwritten-title">
+                CONVERTIBLE<br />PIN BOARD
+              </h2>
+
+              <p className="cs-pinboard-showcase-desc">
+                I tested the final prototype with 23 users. Most responded well to the dual-use
+                function, one user called the re-usability "the best part," another said it felt
+                less bulky once folded down.
+              </p>
+
+              <p className="cs-pinboard-showcase-desc">
+                But it wasn't a clean result. Several people found the folded-table position
+                uncomfortable, especially anyone taller,  the fold angle doesn't leave enough
+                legroom underneath. That's the fix I'd prioritize next: adjusting the angle
+                without losing the compactness that made the fold work in the first place.
+              </p>
+            </div>
+
+            <div className="cs-pinboard-cat-wrap">
+              <img
+                src={catStretchingPng}
+                alt="Cat stretching on blue floor"
+                className="cs-pinboard-cat-img"
+              />
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   )
 }

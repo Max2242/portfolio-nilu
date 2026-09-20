@@ -8,10 +8,18 @@ import gridAirbudsWebp from '../../../assets/projects/casestudies/goboult/grid-a
 import gridAirbudsPng from '../../../assets/projects/casestudies/goboult/grid-airbuds.png'
 import photoBoultBoxWebp from '../../../assets/projects/casestudies/goboult/photo-boult-box.webp'
 import photoBoultBoxPng from '../../../assets/projects/casestudies/goboult/photo-boult-box.png'
-import dielinePackagingWebp from '../../../assets/projects/casestudies/goboult/dieline-packaging.webp'
 import dielinePackagingPng from '../../../assets/projects/casestudies/goboult/dieline-packaging.png'
-import photoUnboxingWebp from '../../../assets/projects/casestudies/goboult/photo-unboxing.webp'
 import photoUnboxingPng from '../../../assets/projects/casestudies/goboult/photo-unboxing.png'
+
+import refNotesEarbudsPng from '../../../assets/projects/casestudies/goboult/ref-notes-earbuds.png'
+import refNoteCardPng from '../../../assets/projects/casestudies/goboult/ref-note-card.png'
+import refIsportHeadphonePng from '../../../assets/projects/casestudies/goboult/ref-isport-headphone.png'
+import refRiceSpoonPng from '../../../assets/projects/casestudies/goboult/ref-rice-spoon.png'
+import refOpenMicPng from '../../../assets/projects/casestudies/goboult/ref-open-mic.png'
+import refPeaPodPng from '../../../assets/projects/casestudies/goboult/ref-pea-pod.png'
+import refChickenEggsPng from '../../../assets/projects/casestudies/goboult/ref-chicken-eggs.png'
+import refRicolaDropPng from '../../../assets/projects/casestudies/goboult/ref-ricola-drop.png'
+import sketchIdeationPng from '../../../assets/projects/casestudies/goboult/sketch-ideation.png'
 
 export const CaseStudyGoboult: React.FC = () => {
   return (
@@ -46,33 +54,32 @@ export const CaseStudyGoboult: React.FC = () => {
             <source srcSet={gridAirbudsWebp} type="image/webp" />
             <img
               src={gridAirbudsPng}
-              alt="Current Boult airbuds lineup on sale"
+              alt="Grid of existing Boult airbuds cases"
               className="cs-airbuds-grid-img"
             />
           </picture>
         </div>
       </section>
 
-      {/* 3. Existing Packaging & Key Issues */}
+      {/* 3. The Problem & Identifying Issues */}
       <section className="cs-section">
         <div className="cs-heading-with-sub">
-          <h2 className="cs-heading">Existing packaging</h2>
+          <h2 className="cs-heading">The Problem</h2>
           <div className="cs-v-divider cs-divider-blue" />
           <p className="cs-subheading">
-            The existing packaging relied heavily on dense text and stacked icons
-            to communicate features, leaving little room for the product or the brand
-            mark to breathe. Key issues:
+            Current Boult packaging had high feature density but low emotional connection.
           </p>
         </div>
 
+        <h3 className="cs-subheading-tag">Issues Identified</h3>
+
         <div className="cs-split-issues-grid">
-          <div className="cs-issue-image-col">
-            <span className="cs-caption-label">CURRENT PACKAGING</span>
+          <div className="cs-issue-photo-col">
             <picture>
               <source srcSet={photoBoultBoxWebp} type="image/webp" />
               <img
                 src={photoBoultBoxPng}
-                alt="Current Boult X70 packaging box"
+                alt="Front retail box of existing Boult Airbass"
                 className="cs-boult-box-img"
               />
             </picture>
@@ -100,52 +107,151 @@ export const CaseStudyGoboult: React.FC = () => {
       {/* 4. References Section */}
       <section className="cs-section">
         <div className="cs-heading-with-sub">
-          <h2 className="cs-heading">References</h2>
-          <div className="cs-v-divider cs-divider-blue" />
+          <h2 className="cs-heading cs-heading-purple">References</h2>
+          <div className="cs-v-divider cs-divider-gold" />
           <p className="cs-subheading">
-            Looked at packaging across categories that use transparency as a design tool
-            rather than an afterthought — where the window is placed to frame the product,
-            not just expose it.
+            Looked at packaging across categories that use transparency as a design tool rather
+            than an afterthought — where the window is placed to frame the product, not just expose
+            it.
           </p>
         </div>
-      </section>
 
-      {/* 5. Final Design & Dieline */}
-      <section className="cs-section">
-        <h2 className="cs-heading">Final design</h2>
-
-        <div className="cs-dieline-wrap">
-          <picture>
-            <source srcSet={dielinePackagingWebp} type="image/webp" />
-            <img
-              src={dielinePackagingPng}
-              alt="Packaging dieline with technical certifications and transparent character window"
-              className="cs-dieline-img"
-            />
-          </picture>
-        </div>
-      </section>
-
-      {/* 6. Physical Unboxing Photography */}
-      <section className="cs-section cs-unboxing-section">
-        <div className="cs-unboxing-two-col">
-          <div className="cs-unboxing-image-col">
-            <picture>
-              <source srcSet={photoUnboxingWebp} type="image/webp" />
+        <div className="cs-goboult-references-container">
+          {/* Row 1: 4 references */}
+          <div className="cs-goboult-ref-row cs-goboult-ref-row-1">
+            <div className="cs-goboult-ref-card cs-ref-notes">
               <img
-                src={photoUnboxingPng}
-                alt="Physical unboxing setup on cork desk with accessories and case"
-                className="cs-unboxing-img"
+                src={refNotesEarbudsPng}
+                alt="Notes earphone packaging framing earbuds as a musical treble clef"
+                className="cs-goboult-ref-img"
+                loading="lazy"
               />
-            </picture>
+            </div>
+            <div className="cs-goboult-ref-card cs-ref-note-card">
+              <img
+                src={refNoteCardPng}
+                alt="Noté cards packaging forming musical eighth notes with earbuds and wires"
+                className="cs-goboult-ref-img"
+                loading="lazy"
+              />
+            </div>
+            <div className="cs-goboult-ref-card cs-ref-isport">
+              <img
+                src={refIsportHeadphonePng}
+                alt="Monster iSport athlete headphones yellow packaging insert framing the earphones"
+                className="cs-goboult-ref-img"
+                loading="lazy"
+              />
+            </div>
+            <div className="cs-goboult-ref-card cs-ref-rice-spoon">
+              <img
+                src={refRiceSpoonPng}
+                alt="Rice scoop packaging featuring illustrated rice bowl with wood spoon framed as serving"
+                className="cs-goboult-ref-img"
+                loading="lazy"
+              />
+            </div>
           </div>
 
-          <div className="cs-unboxing-text-col">
-            <h2 className="cs-handwritten-title cs-text-blue">GOBOULT</h2>
-            <p className="cs-handwritten-sub">The final packaging.</p>
+          {/* Row 2: 4 references */}
+          <div className="cs-goboult-ref-row cs-goboult-ref-row-2">
+            <div className="cs-goboult-ref-card cs-ref-open-mic">
+              <img
+                src={refOpenMicPng}
+                alt="Open mic night microphone packaging held through die-cut finger holes"
+                className="cs-goboult-ref-img"
+                loading="lazy"
+              />
+            </div>
+            <div className="cs-goboult-ref-card cs-ref-pea-pod">
+              <img
+                src={refPeaPodPng}
+                alt="Pea pod green packaging framing tennis balls like peas in a pod"
+                className="cs-goboult-ref-img"
+                loading="lazy"
+              />
+            </div>
+            <div className="cs-goboult-ref-card cs-ref-chicken-eggs">
+              <img
+                src={refChickenEggsPng}
+                alt="Cardboard hen egg carton framing eggs inside die-cut chicken body"
+                className="cs-goboult-ref-img"
+                loading="lazy"
+              />
+            </div>
+            <div className="cs-goboult-ref-card cs-ref-ricola">
+              <img
+                src={refRicolaDropPng}
+                alt="Ricola cough drop wrapper unfolding to reveal unwrapped singer throat"
+                className="cs-goboult-ref-img"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
+
+      {/* 5. Sketch & Ideation Section */}
+      <section className="cs-section cs-goboult-sketch-section">
+        <div className="cs-heading-with-sub">
+          <h2 className="cs-heading">Sketch</h2>
+          <div className="cs-v-divider cs-divider-cyan" />
+          <p className="cs-subheading">
+            Looked at packaging across categories that use transparency as a design tool rather
+            than an afterthought — where the window is placed to frame the product, not just expose
+            it.
+          </p>
+        </div>
+
+        <div className="cs-goboult-sketch-wrap">
+          <img
+            src={sketchIdeationPng}
+            alt="GoBoult packaging ideation sketch - integrating transparent character window framing airbuds"
+            className="cs-goboult-sketch-img"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      {/* 6. Final Design & Dieline */}
+      <section className="cs-section cs-goboult-final-section">
+        <div className="cs-heading-with-sub">
+          <h2 className="cs-heading cs-heading-purple">Final design</h2>
+          <div className="cs-v-divider cs-divider-gold" />
+          <p className="cs-subheading">
+            The pack is made from recycled kraft board. Its raw, natural look also carries the
+            sustainability idea behind the design.
+          </p>
+        </div>
+
+        <div className="cs-goboult-dieline-wrap">
+          <img
+            src={dielinePackagingPng}
+            alt="GoBoult final packaging dieline made from recycled kraft board with transparent character window"
+            className="cs-goboult-dieline-img"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      {/* 7. Final Showcase: Full Bleed Unboxing Photo on Left + Brand Typography on Right */}
+      <div className="cs-goboult-showcase-bleed-wrap">
+        <section className="cs-goboult-showcase-inner">
+          <div className="cs-goboult-showcase-photo-col">
+            <img
+              src={photoUnboxingPng}
+              alt="GoBoult final packaging physical unboxing with retail competitor boxes"
+              className="cs-goboult-unboxing-img"
+              loading="lazy"
+            />
+          </div>
+
+          <div className="cs-goboult-showcase-text-col">
+            <h2 className="cs-goboult-showcase-title">GOBOULT</h2>
+            <p className="cs-goboult-showcase-subtitle">The final packaging.</p>
+          </div>
+        </section>
+      </div>
     </div>
   )
 }

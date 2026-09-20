@@ -1539,7 +1539,7 @@
   max-width: 200px;
 }
 
-/* 5. Final Showcase: Left Bleed Purple Card + Cascading 3D Phones */
+/* 5. Final Showcase: Left Purple Text Card + Right Half Phone Mockups */
 .cs-ecomove-showcase-bleed-wrap {
   width: 100vw;
   position: relative;
@@ -1548,75 +1548,96 @@
   margin-left: -50vw;
   margin-right: -50vw;
   overflow: hidden;
-  margin-top: 5rem;
-  margin-bottom: 6rem;
+  margin-top: 5.5rem;
+  margin-bottom: 0;
+  padding-bottom: 2.5rem;
   background-color: #F5F2EC;
 }
 
 .cs-ecomove-showcase-inner {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 600px;
   position: relative;
-  min-height: 590px;
 }
 
 .cs-ecomove-showcase-purple-card {
-  position: relative;
+  flex: 0 0 47.8%;
+  width: 47.8%;
   background-color: #9084AA;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
   border-bottom-right-radius: 75px;
-  width: min(100%, calc(50vw + 60px));
-  padding: 5rem 4rem 5.5rem calc(max(1.5rem, (100vw - 1280px) / 2 + clamp(1.5rem, 5vw, 4rem)));
+  padding: 5.5rem 3.5rem 6rem calc(max(2rem, (100vw - 1200px) / 2 + 1.5rem));
   box-sizing: border-box;
-  z-index: 1;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* Concave scoop fillet on top-right of the purple card */
+/* Concave scoop fillet on top-right of the purple card matching reference image */
 .cs-ecomove-showcase-purple-card::before {
   content: '';
   position: absolute;
   top: 0;
-  right: -70px;
-  width: 70px;
-  height: 70px;
-  background: radial-gradient(circle at 100% 100%, transparent 69.5px, #9084AA 70.5px);
+  right: -32px;
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(circle at 100% 100%, transparent 31.5px, #9084AA 32px);
   pointer-events: none;
+  z-index: 3;
+}
+
+.cs-ecomove-showcase-text-content {
+  width: 100%;
+  max-width: 440px;
 }
 
 .cs-ecomove-handwritten-title {
   font-family: 'Caveat', 'Patrick Hand', cursive, sans-serif;
-  font-size: clamp(2.8rem, 4vw, 3.6rem);
+  font-size: clamp(3rem, 4.2vw, 4.2rem);
   font-weight: 700;
   color: #000000;
-  margin: 0 0 2rem 0;
-  letter-spacing: 3px;
+  margin: 0 0 2.25rem 0;
+  letter-spacing: 2.5px;
+  line-height: 1;
 }
 
 .cs-ecomove-showcase-quote {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 13.5px;
   line-height: 1.7;
-  color: #2C223E;
+  color: #4A4359;
   margin: 0;
-  max-width: 500px;
+  max-width: 440px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 .cs-ecomove-showcase-fan-wrap {
-  position: absolute;
-  left: min(calc(50vw - 40px), calc(50% - 10px));
-  top: 50%;
-  transform: translateY(-50%);
-  max-width: 620px;
-  width: calc(50vw + 60px);
-  z-index: 2;
-  pointer-events: none;
+  flex: 0 0 52.2%;
+  width: 52.2%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
 }
 
 .cs-ecomove-phone-fan-img {
   width: 100%;
+  max-width: 680px;
   height: auto;
   display: block;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08));
+  margin-left: -15px;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.05));
 }
 
 /* Responsive Overrides for EcoMove */
@@ -1675,12 +1696,15 @@
 
   .cs-ecomove-showcase-inner {
     flex-direction: column;
+    align-items: flex-start;
+    min-height: auto;
   }
 
   .cs-ecomove-showcase-purple-card {
+    flex: none;
     width: 100%;
-    border-radius: 0 40px 40px 0;
-    padding: 3.5rem 2.5rem;
+    border-radius: 0 45px 45px 0;
+    padding: 3.5rem 2rem 4rem calc(max(1.5rem, (100vw - 1200px) / 2 + 1.5rem));
   }
 
   .cs-ecomove-showcase-purple-card::before {
@@ -1688,13 +1712,16 @@
   }
 
   .cs-ecomove-showcase-fan-wrap {
-    position: relative;
-    left: auto;
-    top: auto;
-    transform: none;
+    flex: none;
     width: 100%;
+    max-width: 560px;
+    margin: 2.5rem auto 0;
+    justify-content: center;
+  }
+
+  .cs-ecomove-phone-fan-img {
+    margin-left: 0;
     max-width: 100%;
-    margin-top: 2rem;
   }
 }
 
@@ -1948,9 +1975,174 @@
 
 .cs-mt-2 { margin-top: 3.5rem; }
 
-.cs-bg-cobalt {
-  background-color: #005FA8;
-  padding: 3.5rem 3rem;
+/* ==========================================================================
+   Convertible Pinboard Final Showcase (Combined Layout from Reference)
+   ========================================================================== */
+
+.cs-pinboard-showcase-bleed-wrap {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  margin-top: 5.5rem;
+  margin-bottom: 0;
+  padding-top: 2rem;
+  padding-bottom: 3.5rem;
+  background-color: #F5F2EC;
+}
+
+.cs-pinboard-showcase-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  position: relative;
+  min-height: 570px;
+}
+
+.cs-pinboard-showcase-photo-wrap {
+  position: relative;
+  z-index: 3;
+  flex: 0 0 53%;
+  max-width: 660px;
+  margin-right: -55px; /* Smooth overlap onto the blue card */
+  margin-left: calc(max(1.5rem, (100vw - 1200px) / 2 + 1.5rem));
+  display: flex;
+}
+
+.cs-pinboard-studio-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px 18px 75px 18px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.cs-pinboard-showcase-blue-card {
+  flex: 1;
+  background-color: #065B9D;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 65px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 5rem calc(max(2rem, (100vw - 1200px) / 2 + 2.5rem)) 6.5rem 5.5rem;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 570px;
+}
+
+/* Concave scoop fillet on top-left of the blue card */
+.cs-pinboard-showcase-blue-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -44px;
+  width: 44px;
+  height: 44px;
+  background: radial-gradient(circle at 0% 100%, transparent 43.5px, #065B9D 44px);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.cs-pinboard-showcase-text-wrap {
+  width: 100%;
+  max-width: 460px;
+}
+
+.cs-pinboard-handwritten-title {
+  font-family: 'Caveat', 'Patrick Hand', cursive, sans-serif;
+  font-size: clamp(2.6rem, 3.8vw, 4rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  text-align: right;
+  margin: 0 0 2.25rem 0;
+  letter-spacing: 2.5px;
+  line-height: 1.08;
+}
+
+.cs-pinboard-showcase-desc {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.01em;
+}
+
+.cs-pinboard-showcase-desc:last-of-type {
+  margin-bottom: 0;
+}
+
+.cs-pinboard-cat-wrap {
+  position: absolute;
+  bottom: 0;
+  right: calc(max(2rem, (100vw - 1200px) / 2 + 2.5rem));
+  line-height: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.cs-pinboard-cat-img {
+  width: 135px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.25));
+}
+
+@media (max-width: 992px) {
+  .cs-pinboard-showcase-inner {
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+  }
+
+  .cs-pinboard-showcase-photo-wrap {
+    flex: none;
+    width: 100%;
+    max-width: 600px;
+    margin-right: 0;
+    margin-left: 0;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+  }
+
+  .cs-pinboard-studio-img {
+    border-radius: 18px 18px 50px 18px;
+  }
+
+  .cs-pinboard-showcase-blue-card {
+    flex: none;
+    width: 100%;
+    border-radius: 50px 0 0 50px;
+    margin-top: -30px;
+    padding: 4.5rem 2rem 5.5rem 2rem;
+    min-height: auto;
+  }
+
+  .cs-pinboard-showcase-blue-card::before {
+    display: none;
+  }
+
+  .cs-pinboard-handwritten-title {
+    text-align: left;
+  }
+
+  .cs-pinboard-cat-wrap {
+    right: 2rem;
+    bottom: 0;
+  }
+
+  .cs-pinboard-cat-img {
+    width: 110px;
+  }
 }
 
 /* GOBOULT Styles */
@@ -2034,35 +2226,193 @@
   line-height: 1;
 }
 
-.cs-dieline-wrap {
-  background: #FFFFFF;
-  border-radius: 28px;
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  margin-top: 2rem;
+.cs-dieline-wrap,
+.cs-goboult-dieline-wrap {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  margin-top: 2.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-.cs-dieline-img {
+.cs-dieline-img,
+.cs-goboult-dieline-img {
+  width: 100%;
+  max-width: 1080px;
+  height: auto;
+  display: block;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.cs-goboult-final-section {
+  margin-top: 5rem;
+  margin-bottom: 6rem;
+}
+
+/* ==========================================================================
+   GOBOULT Final Showcase (Unboxing Photo Bleed + Brand Text)
+   ========================================================================== */
+
+.cs-goboult-showcase-bleed-wrap {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  margin-top: 5.5rem;
+  margin-bottom: 0;
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+  background-color: #F5F2EC;
+}
+
+.cs-goboult-showcase-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  min-height: 520px;
+}
+
+.cs-goboult-showcase-photo-col {
+  flex: 0 0 69.4%;
+  width: 69.4%;
+  max-width: 1020px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  line-height: 0;
+}
+
+.cs-goboult-unboxing-img {
   width: 100%;
   height: auto;
   display: block;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 56px;
+  border-bottom-right-radius: 56px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
 }
 
-.cs-unboxing-two-col {
-  display: grid;
-  grid-template-columns: 1.4fr 0.8fr;
-  gap: 3rem;
-  align-items: center;
-  margin-top: 3rem;
+.cs-goboult-showcase-text-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: clamp(2rem, 3.5vw, 4.5rem);
+  padding-right: calc(max(1.5rem, (100vw - 1200px) / 2 + 1.5rem));
+  box-sizing: border-box;
 }
 
-.cs-unboxing-img {
-  width: 100%;
-  height: auto;
-  border-radius: 24px;
+.cs-goboult-showcase-title {
+  font-family: 'Montserrat', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.2rem, 3.2vw, 3.5rem);
+  font-weight: 800;
+  color: #1A2B7B;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  margin: 0 0 0.35rem 0;
+  text-transform: uppercase;
+}
+
+.cs-goboult-showcase-subtitle {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.05rem, 1.35vw, 1.35rem);
+  font-weight: 500;
+  color: #2F448C;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin: 0;
 }
 
 .cs-text-blue { color: #1E3A8A !important; }
+.cs-heading-purple { color: #8A82A5 !important; }
+.cs-divider-gold { background-color: #E5A83B !important; }
+
+/* References Section - Packaging Framing Cards */
+.cs-goboult-references-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2.25rem;
+  width: 100%;
+}
+
+.cs-goboult-ref-row {
+  display: flex;
+  gap: clamp(0.75rem, 1.5vw, 1.5rem);
+  align-items: flex-start;
+  width: 100%;
+}
+
+.cs-ref-notes { flex: 0.95; }
+.cs-ref-note-card { flex: 1.85; }
+.cs-ref-isport { flex: 1.75; }
+.cs-ref-rice-spoon { flex: 1.25; }
+
+.cs-ref-open-mic { flex: 2.35; }
+.cs-ref-pea-pod { flex: 1.6; }
+.cs-ref-chicken-eggs { flex: 1.4; }
+.cs-ref-ricola { flex: 1.15; }
+
+.cs-goboult-ref-card {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #FFFFFF;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.cs-goboult-ref-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+.cs-goboult-ref-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Sketch Section */
+.cs-goboult-sketch-section {
+  margin-top: 5rem;
+  margin-bottom: 5.5rem;
+}
+
+.cs-divider-cyan {
+  background-color: #74C7D5 !important;
+}
+
+.cs-goboult-sketch-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.5rem 0 1rem;
+}
+
+.cs-goboult-sketch-img {
+  width: 100%;
+  max-width: 1060px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
 
 /* Responsive adjustments */
 @media (max-width: 900px) {
@@ -2153,6 +2503,48 @@
   .cs-persona-v-divider {
     display: none;
   }
+
+  .cs-goboult-ref-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .cs-goboult-ref-card {
+    flex: none !important;
+    width: 100%;
+  }
+
+  .cs-goboult-showcase-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.25rem;
+    min-height: auto;
+  }
+
+  .cs-goboult-showcase-photo-col {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cs-goboult-unboxing-img {
+    border-top-right-radius: 36px;
+    border-bottom-right-radius: 36px;
+  }
+
+  .cs-goboult-showcase-text-col {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .cs-goboult-showcase-title {
+    font-size: 2.4rem;
+  }
+
+  .cs-goboult-showcase-subtitle {
+    font-size: 1.15rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -2170,10 +2562,14 @@
     display: none;
   }
 
+  .cs-goboult-ref-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
   .cs-card-olive-full,
   .cs-blueprint-section,
-  .cs-final-banner,
-  .cs-bg-cobalt {
+  .cs-final-banner {
     padding: 2rem 1.5rem;
     border-radius: 24px;
   }

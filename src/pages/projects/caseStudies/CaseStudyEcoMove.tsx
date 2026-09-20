@@ -15,7 +15,6 @@ import wireframeLowfiWebp from '../../../assets/projects/casestudies/ecomove/wir
 import wireframeHifiPng from '../../../assets/projects/casestudies/ecomove/wireframe-hifi.png'
 import wireframeHifiWebp from '../../../assets/projects/casestudies/ecomove/wireframe-hifi.webp'
 import phoneShowcaseFanPng from '../../../assets/projects/casestudies/ecomove/phone-showcase-fan.png'
-import phoneShowcaseFanWebp from '../../../assets/projects/casestudies/ecomove/phone-showcase-fan.webp'
 
 /**
  * Pure vector quotation mark matching Figma's exact double-comma glyph
@@ -346,29 +345,28 @@ export const CaseStudyEcoMove: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. Final Showcase: Left Bleed Purple Card + Cascading 3D Phones */}
+      {/* 6. Final Showcase: Left Purple Text Card + Right Half Phone Mockups */}
       <div className="cs-ecomove-showcase-bleed-wrap">
         <section className="cs-ecomove-showcase-inner">
           <div className="cs-ecomove-showcase-purple-card">
-            <h2 className="cs-ecomove-handwritten-title">ECOMOVE</h2>
-            <p className="cs-ecomove-showcase-quote">
-              "EcoMove motivates students to choose sustainable travel, walking, cycling,
-              riding, or carpooling, over polluting transport. Every trip logged saves CO₂,
-              earns points, and unlocks rewards like extra library days, canteen perks, and
-              discounts. A leader board turns individual choices into a visible, collective
-              push toward cleaner air."
-            </p>
+            <div className="cs-ecomove-showcase-text-content">
+              <h2 className="cs-ecomove-handwritten-title">ECOMOVE</h2>
+              <p className="cs-ecomove-showcase-quote">
+                EcoMove motivates students to choose sustainable travel, walking, cycling,
+                riding, or carpooling, over polluting transport. Every trip logged saves CO₂,
+                earns points, and unlocks rewards like extra library days, canteen perks, and
+                discounts. A leader board turns individual choices into a visible, collective
+                push toward cleaner air."
+              </p>
+            </div>
           </div>
 
           <div className="cs-ecomove-showcase-fan-wrap">
-            <picture>
-              <source srcSet={phoneShowcaseFanWebp} type="image/webp" />
-              <img
-                src={phoneShowcaseFanPng}
-                alt="EcoMove mobile application screen showcase fanned collage"
-                className="cs-ecomove-phone-fan-img"
-              />
-            </picture>
+            <img
+              src={phoneShowcaseFanPng}
+              alt="EcoMove mobile application screen showcase fanned collage"
+              className="cs-ecomove-phone-fan-img"
+            />
           </div>
         </section>
       </div>
