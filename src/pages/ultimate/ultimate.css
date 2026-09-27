@@ -341,12 +341,12 @@
 }
 
 /* ==========================================================================
-   Interactive Lightbox Modal
+   Interactive Lightbox Modal - Figma Node 144:8 Card Frame
    ========================================================================== */
 .lightbox-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 17, 53, 0.78);
+  background: rgba(244, 241, 235, 0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   z-index: 9999;
@@ -355,151 +355,191 @@
   justify-content: center;
   padding: 1.5rem;
   box-sizing: border-box;
-  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  will-change: opacity;
 }
 
 .lightbox-dialog {
-  background: #ffffff;
-  border-radius: 16px;
-  max-width: 960px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  background: #D8D8D8;
+  border-radius: 40px;
+  width: 528px;
+  max-width: min(92vw, 528px);
+  max-height: 92vh;
+  padding: 24px 24px 30px 24px;
+  box-sizing: border-box;
+  box-shadow: 0 25px 60px rgba(0, 17, 53, 0.18), 0 6px 18px rgba(0, 17, 53, 0.08);
   display: flex;
   flex-direction: column;
+  align-items: center;
   position: relative;
-  animation: scaleUp 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes scaleUp {
-  from { opacity: 0; transform: scale(0.94) translateY(12px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
+  overflow-y: auto;
+  will-change: transform, opacity;
 }
 
 .lightbox-close-btn {
   position: absolute;
   top: 1rem;
-  right: 1rem;
-  width: 38px;
-  height: 38px;
+  right: 1.1rem;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  background: rgba(0, 17, 53, 0.08);
+  background: rgba(27, 42, 129, 0.12);
   border: none;
-  color: #001135;
-  font-size: 1.4rem;
+  color: #1B2A81;
+  font-size: 1.35rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
-  z-index: 10;
+  transition: all 0.2s ease;
+  z-index: 25;
+  line-height: 1;
 }
 
 .lightbox-close-btn:hover {
-  background: rgba(0, 17, 53, 0.16);
+  background: rgba(27, 42, 129, 0.25);
   transform: scale(1.08);
 }
 
 .lightbox-media {
-  width: 100%;
-  background: #111B2C;
-  max-height: 60vh;
+  width: 480px;
+  height: 221px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  background: #c2c2c2;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  overflow: hidden;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.lightbox-media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 0;
 }
 
 .lightbox-img {
-  max-width: 100%;
-  max-height: 60vh;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
   display: block;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 32px;
 }
 
-.lightbox-nav-btn {
+/* Floating Navigation Buttons staying directly on the image */
+.lightbox-floating-nav-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 17, 53, 0.55);
+  background: rgba(27, 42, 129, 0.58);
   color: #ffffff;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.45);
   width: 44px;
   height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.85rem;
+  line-height: 1;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
-  backdrop-filter: blur(8px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 10;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  user-select: none;
 }
 
-.lightbox-nav-btn:hover {
-  background: rgba(0, 17, 53, 0.85);
+.lightbox-floating-nav-btn:hover {
+  background: rgba(27, 42, 129, 0.92);
+  border-color: rgba(255, 255, 255, 0.85);
   transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }
 
-.lightbox-nav-btn.prev {
-  left: 1rem;
+.lightbox-floating-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
 }
 
-.lightbox-nav-btn.next {
-  right: 1rem;
+.lightbox-floating-nav-btn.prev {
+  left: 0.85rem;
+}
+
+.lightbox-floating-nav-btn.next {
+  right: 0.85rem;
 }
 
 .lightbox-info {
-  padding: 1.5rem 1.75rem 2rem;
-  background: #ffffff;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
-}
-
-.lightbox-tag-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-}
-
-.lightbox-handwritten-tag {
-  font-family: 'Caveat', cursive, sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #001135;
-  line-height: 1;
-}
-
-.lightbox-counter {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #6C7D93;
+  width: 100%;
+  padding-top: 1.35rem;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .lightbox-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: #001135;
-  margin: 0.2rem 0 0.5rem;
+  font-family: 'Patrick Hand', cursive, sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1B2A81;
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  text-align: center;
 }
 
 .lightbox-desc {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.95rem;
-  color: #364863;
-  line-height: 1.6;
-  margin: 0;
+  font-family: 'Patrick Hand', cursive, sans-serif;
+  font-size: 1.25rem;
+  color: #1B2A81;
+  line-height: 1.35;
+  margin: 0 auto;
+  max-width: 400px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .lightbox-dialog {
+    border-radius: 28px;
+    padding: 18px 16px 24px 16px;
+  }
+
+  .lightbox-media {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 480 / 221;
+    border-radius: 22px;
+  }
+
+  .lightbox-img {
+    border-radius: 22px;
+  }
+
+  .lightbox-title {
+    font-size: 1.8rem;
+  }
+
+  .lightbox-desc {
+    font-size: 1.05rem;
+  }
+
+  .lightbox-floating-nav-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.45rem;
+  }
+
+  .lightbox-floating-nav-btn.prev {
+    left: 0.5rem;
+  }
+
+  .lightbox-floating-nav-btn.next {
+    right: 0.5rem;
+  }
 }

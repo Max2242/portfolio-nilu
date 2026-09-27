@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 // Memory Photo Imports (WebP & PNG)
-import spiritTrophyWebp from '../../assets/ultimate/spirit-trophy-stage.webp'
 import spiritTrophyPng from '../../assets/ultimate/spirit-trophy-stage.png'
 import firstJerseyWebp from '../../assets/ultimate/first-jersey-tiedye.webp'
 import firstJerseyPng from '../../assets/ultimate/first-jersey-tiedye.png'
@@ -44,6 +43,7 @@ interface MemoryItem {
   webp: string
   png: string
   alt: string
+  aspectRatio: number
   isCenterpiece?: boolean
   desktopStyle: {
     left: string
@@ -56,16 +56,17 @@ interface MemoryItem {
 }
 
 const memoriesData: MemoryItem[] = [
+  // --- 1. Landscape Memories Series (1 to 7) ---
   {
     id: 'spirit-trophy-stage',
     title: 'Spirit of the Game Trophy 2025',
     subtitle: 'Championship Stage & National League',
     tag: 'Spirit Trophy 2025',
-    description:
-      'The crowning moment for Ultimate Chakra. Winning the Spirit Trophy 2025 celebrating competitive excellence, mutual respect, integrity, and pure love of the sport.',
-    webp: spiritTrophyWebp,
+    description: 'First time at NCUC 2025 and won the award.',
+    webp: spiritTrophyPng,
     png: spiritTrophyPng,
     alt: 'Ultimate Chakra team celebrating on stage with gold medals and the golden Spirit Trophy 2025',
+    aspectRatio: 1.931,
     isCenterpiece: true,
     desktopStyle: {
       left: '23.8%',
@@ -86,48 +87,13 @@ const memoriesData: MemoryItem[] = [
     webp: nightTourneyWebp,
     png: nightTourneyPng,
     alt: 'Team posing on pitch under stadium lights at night tournament holding discs',
+    aspectRatio: 1.756,
     desktopStyle: {
       left: '22.6%',
       top: '9.2%',
       width: '15.5%',
       zIndex: 12,
       rotate: '-1.5deg',
-    },
-  },
-  {
-    id: 'puppy-cuddle',
-    title: 'Team Mascot Love',
-    subtitle: 'Sideline Supporter',
-    tag: 'Puppy Cuddles',
-    description:
-      'Wholesome sideline puppy cuddles between intense bracket rounds. The unofficial four-legged mascot of our championship run.',
-    webp: puppyCuddleWebp,
-    png: puppyCuddlePng,
-    alt: 'Teammate in tournament jersey holding and hugging a cute puppy mascot',
-    desktopStyle: {
-      left: '38.4%',
-      top: '11.8%',
-      width: '5.8%',
-      zIndex: 13,
-      rotate: '2deg',
-    },
-  },
-  {
-    id: 'teammates-hug',
-    title: 'Golden Hour Victory',
-    subtitle: 'Teammate Bond',
-    tag: 'Golden Hour',
-    description:
-      'Celebrating another hard-earned practice victory under the warm afternoon sun. The bond that makes this team a true family.',
-    webp: teammatesHugWebp,
-    png: teammatesHugPng,
-    alt: 'Two teammates sharing a warm embrace and smile on the practice field lawn',
-    desktopStyle: {
-      left: '17.6%',
-      top: '20.2%',
-      width: '6.6%',
-      zIndex: 11,
-      rotate: '-2deg',
     },
   },
   {
@@ -140,30 +106,13 @@ const memoriesData: MemoryItem[] = [
     webp: ultimateChakraTeamWebp,
     png: ultimateChakraTeamPng,
     alt: 'Ultimate Chakra squad standing together on campus lawn in front of tree and building',
+    aspectRatio: 1.908,
     desktopStyle: {
       left: '7.8%',
       top: '35.4%',
       width: '13.0%',
       zIndex: 12,
       rotate: '1deg',
-    },
-  },
-  {
-    id: 'chakra-highfive',
-    title: 'Endzone Celebration',
-    subtitle: 'Point Scored',
-    tag: 'Spirit & Action',
-    description:
-      'A celebratory high-five right after an athletic layout catch in the endzone. Pure energy and shared joy on the pitch.',
-    webp: chakraHighfiveWebp,
-    png: chakraHighfivePng,
-    alt: 'Two players high-fiving on the field after scoring a disc point',
-    desktopStyle: {
-      left: '16.2%',
-      top: '47.6%',
-      width: '7.3%',
-      zIndex: 14,
-      rotate: '-1deg',
     },
   },
   {
@@ -176,6 +125,7 @@ const memoriesData: MemoryItem[] = [
     webp: firstJerseyWebp,
     png: firstJerseyPng,
     alt: 'Ultimate Chakra team lined up on lawn in their first custom blue tie-dye swirl jerseys',
+    aspectRatio: 2.05,
     desktopStyle: {
       left: '15.7%',
       top: '67.6%',
@@ -194,30 +144,13 @@ const memoriesData: MemoryItem[] = [
     webp: awardCeremonyWebp,
     png: awardCeremonyPng,
     alt: 'Teammates receiving medals and trophy during official podium ceremony on stage',
+    aspectRatio: 1.169,
     desktopStyle: {
       left: '44.1%',
       top: '79.2%',
       width: '8.0%',
       zIndex: 12,
       rotate: '1deg',
-    },
-  },
-  {
-    id: 'four-friends',
-    title: 'Chakra Core Friends',
-    subtitle: 'Celebration Banquet',
-    tag: 'Friends & Family',
-    description:
-      'Dressed up for the post-season banquet and celebrating friendships made through countless practices, road trips, and championships.',
-    webp: fourFriendsWebp,
-    png: fourFriendsPng,
-    alt: 'Friends smiling together in blue and white printed outfits at post-tournament celebration',
-    desktopStyle: {
-      left: '52.4%',
-      top: '76.8%',
-      width: '6.9%',
-      zIndex: 13,
-      rotate: '-1.5deg',
     },
   },
   {
@@ -230,6 +163,7 @@ const memoriesData: MemoryItem[] = [
     webp: mumbaiCoachingWebp,
     png: mumbaiCoachingPng,
     alt: 'Team posing together on grass in pink and teal jerseys holding frisbee at Mumbai coaching session',
+    aspectRatio: 1.919,
     desktopStyle: {
       left: '67.5%',
       top: '67.6%',
@@ -248,10 +182,89 @@ const memoriesData: MemoryItem[] = [
     webp: audaSelfieWebp,
     png: audaSelfiePng,
     alt: 'Large smiling group selfie of teammates on running track under bright sunny morning',
+    aspectRatio: 1.5,
     desktopStyle: {
       left: '72.5%',
       top: '18.5%',
       width: '13.2%',
+      zIndex: 13,
+      rotate: '-1.5deg',
+    },
+  },
+
+  // --- 2. Portrait Memories Series (8 to 12) ---
+  {
+    id: 'puppy-cuddle',
+    title: 'Team Mascot Love',
+    subtitle: 'Sideline Supporter',
+    tag: 'Puppy Cuddles',
+    description:
+      'Wholesome sideline puppy cuddles between intense bracket rounds. The unofficial four-legged mascot of our championship run.',
+    webp: puppyCuddleWebp,
+    png: puppyCuddlePng,
+    alt: 'Teammate in tournament jersey holding and hugging a cute puppy mascot',
+    aspectRatio: 0.714,
+    desktopStyle: {
+      left: '38.4%',
+      top: '11.8%',
+      width: '5.8%',
+      zIndex: 13,
+      rotate: '2deg',
+    },
+  },
+  {
+    id: 'teammates-hug',
+    title: 'Golden Hour Victory',
+    subtitle: 'Teammate Bond',
+    tag: 'Golden Hour',
+    description:
+      'Celebrating another hard-earned practice victory under the warm afternoon sun. The bond that makes this team a true family.',
+    webp: teammatesHugWebp,
+    png: teammatesHugPng,
+    alt: 'Two teammates sharing a warm embrace and smile on the practice field lawn',
+    aspectRatio: 0.708,
+    desktopStyle: {
+      left: '17.6%',
+      top: '20.2%',
+      width: '6.6%',
+      zIndex: 11,
+      rotate: '-2deg',
+    },
+  },
+  {
+    id: 'chakra-highfive',
+    title: 'Endzone Celebration',
+    subtitle: 'Point Scored',
+    tag: 'Spirit & Action',
+    description:
+      'A celebratory high-five right after an athletic layout catch in the endzone. Pure energy and shared joy on the pitch.',
+    webp: chakraHighfiveWebp,
+    png: chakraHighfivePng,
+    alt: 'Two players high-fiving on the field after scoring a disc point',
+    aspectRatio: 0.758,
+    desktopStyle: {
+      left: '16.2%',
+      top: '47.6%',
+      width: '7.3%',
+      zIndex: 14,
+      rotate: '-1deg',
+    },
+  },
+  {
+    id: 'four-friends',
+    title: 'Chakra Core Friends',
+    subtitle: 'Celebration Banquet',
+    tag: 'Friends & Family',
+    description:
+      'Dressed up for the post-season banquet and celebrating friendships made through countless practices, road trips, and championships.',
+    webp: fourFriendsWebp,
+    png: fourFriendsPng,
+    alt: 'Friends smiling together in blue and white printed outfits at post-tournament celebration',
+    aspectRatio: 0.813,
+    desktopStyle: {
+      left: '52.4%',
+      top: '76.8%',
+      width: '6.9%',
       zIndex: 13,
       rotate: '-1.5deg',
     },
@@ -266,6 +279,7 @@ const memoriesData: MemoryItem[] = [
     webp: audaRunnersWebp,
     png: audaRunnersPng,
     alt: 'Player sprinting across green field chasing flying white frisbee disc in the air',
+    aspectRatio: 0.938,
     desktopStyle: {
       left: '75.5%',
       top: '35.2%',
@@ -342,48 +356,219 @@ const doodleItems: DoodleItem[] = [
 
 function UltimatePage() {
   const [selectedMemoryIndex, setSelectedMemoryIndex] = useState<number | null>(null)
+  const [isClosing, setIsClosing] = useState(false)
+  const dialogRef = useRef<HTMLDivElement | null>(null)
+  const backdropRef = useRef<HTMLDivElement | null>(null)
+  const hasSmartAnimatedRef = useRef(false)
+  const originRectRef = useRef<{
+    x: number
+    y: number
+    width: number
+    height: number
+    rotate: string
+  } | null>(null)
 
   const activeMemory = selectedMemoryIndex !== null ? memoriesData[selectedMemoryIndex] : null
 
+  // Capture origin coordinates on canvas for smooth 900ms smart animate
+  const openLightbox = (index: number, e?: React.MouseEvent | React.KeyboardEvent) => {
+    const rotate = memoriesData[index].desktopStyle.rotate || '0deg'
+    let rect: DOMRect | null = null
+
+    if (e && e.currentTarget) {
+      const targetEl = e.currentTarget as HTMLElement
+      rect = targetEl.getBoundingClientRect()
+    } else {
+      const el = document.querySelector(`[data-memory-id="${memoriesData[index].id}"]`)
+      if (el) {
+        rect = el.getBoundingClientRect()
+      }
+    }
+
+    if (rect) {
+      originRectRef.current = {
+        x: rect.left,
+        y: rect.top,
+        width: rect.width,
+        height: rect.height,
+        rotate,
+      }
+    } else {
+      originRectRef.current = null
+    }
+
+    hasSmartAnimatedRef.current = false
+    setIsClosing(false)
+    setSelectedMemoryIndex(index)
+  }
+
+  // Update origin reference when navigating between memories inside modal
+  const updateOriginForIndex = (index: number) => {
+    const el = document.querySelector(`[data-memory-id="${memoriesData[index].id}"]`)
+    if (el) {
+      const rect = el.getBoundingClientRect()
+      originRectRef.current = {
+        x: rect.left,
+        y: rect.top,
+        width: rect.width,
+        height: rect.height,
+        rotate: memoriesData[index].desktopStyle.rotate || '0deg',
+      }
+    }
+  }
+
+  // 900ms FLIP Smart Animate on modal mount
+  useEffect(() => {
+    if (selectedMemoryIndex === null || isClosing) return
+
+    // Don't re-FLIP from canvas if already open and navigating
+    if (hasSmartAnimatedRef.current) return
+
+    const dialog = dialogRef.current
+    const backdrop = backdropRef.current
+    const origin = originRectRef.current
+
+    if (!dialog) return
+
+    if (!origin) {
+      dialog.style.opacity = '1'
+      dialog.style.transform = 'translate3d(0, 0, 0) scale(1) rotate(0deg)'
+      if (backdrop) backdrop.style.opacity = '1'
+      hasSmartAnimatedRef.current = true
+      return
+    }
+
+    // Measure target dialog
+    const targetRect = dialog.getBoundingClientRect()
+    const originCenterX = origin.x + origin.width / 2
+    const originCenterY = origin.y + origin.height / 2
+    const targetCenterX = targetRect.left + targetRect.width / 2
+    const targetCenterY = targetRect.top + targetRect.height / 2
+
+    const deltaX = originCenterX - targetCenterX
+    const deltaY = originCenterY - targetCenterY
+    const scale = origin.width / targetRect.width
+
+    // INVERT: Position dialog exactly where the clicked thumbnail is
+    dialog.style.transition = 'none'
+    dialog.style.transformOrigin = 'center center'
+    dialog.style.transform = `translate3d(${deltaX}px, ${deltaY}px, 0) scale(${scale}) rotate(${origin.rotate})`
+    dialog.style.opacity = '0.9'
+
+    if (backdrop) {
+      backdrop.style.transition = 'none'
+      backdrop.style.opacity = '0'
+    }
+
+    // PLAY: Animate smoothly to center card frame over 900ms
+    const id1 = requestAnimationFrame(() => {
+      const id2 = requestAnimationFrame(() => {
+        if (dialog) {
+          dialog.style.transition =
+            'transform 900ms cubic-bezier(0.16, 1, 0.3, 1), opacity 900ms cubic-bezier(0.16, 1, 0.3, 1)'
+          dialog.style.transform = 'translate3d(0, 0, 0) scale(1) rotate(0deg)'
+          dialog.style.opacity = '1'
+        }
+        if (backdrop) {
+          backdrop.style.transition = 'opacity 900ms cubic-bezier(0.16, 1, 0.3, 1)'
+          backdrop.style.opacity = '1'
+        }
+        hasSmartAnimatedRef.current = true
+      })
+      return () => cancelAnimationFrame(id2)
+    })
+
+    return () => cancelAnimationFrame(id1)
+  }, [selectedMemoryIndex, isClosing])
+
+  // 900ms Reverse Smart Animate on close
+  const closeLightbox = () => {
+    if (isClosing || selectedMemoryIndex === null) return
+
+    const dialog = dialogRef.current
+    const backdrop = backdropRef.current
+    const origin = originRectRef.current
+
+    if (dialog && origin) {
+      setIsClosing(true)
+      const targetRect = dialog.getBoundingClientRect()
+      const originCenterX = origin.x + origin.width / 2
+      const originCenterY = origin.y + origin.height / 2
+      const targetCenterX = targetRect.left + targetRect.width / 2
+      const targetCenterY = targetRect.top + targetRect.height / 2
+
+      const deltaX = originCenterX - targetCenterX
+      const deltaY = originCenterY - targetCenterY
+      const scale = origin.width / targetRect.width
+
+      dialog.style.transition =
+        'transform 900ms cubic-bezier(0.16, 1, 0.3, 1), opacity 900ms cubic-bezier(0.16, 1, 0.3, 1)'
+      dialog.style.transform = `translate3d(${deltaX}px, ${deltaY}px, 0) scale(${scale}) rotate(${origin.rotate})`
+      dialog.style.opacity = '0'
+
+      if (backdrop) {
+        backdrop.style.transition = 'opacity 900ms cubic-bezier(0.16, 1, 0.3, 1)'
+        backdrop.style.opacity = '0'
+      }
+
+      setTimeout(() => {
+        setSelectedMemoryIndex(null)
+        setIsClosing(false)
+        hasSmartAnimatedRef.current = false
+      }, 900)
+    } else {
+      setSelectedMemoryIndex(null)
+      hasSmartAnimatedRef.current = false
+    }
+  }
+
+  const nextMemory = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setSelectedMemoryIndex((prev) => {
+      if (prev === null) return null
+      const nextIdx = (prev + 1) % memoriesData.length
+      updateOriginForIndex(nextIdx)
+      return nextIdx
+    })
+  }
+
+  const prevMemory = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setSelectedMemoryIndex((prev) => {
+      if (prev === null) return null
+      const prevIdx = (prev - 1 + memoriesData.length) % memoriesData.length
+      updateOriginForIndex(prevIdx)
+      return prevIdx
+    })
+  }
+
   // Keyboard navigation for lightbox
   useEffect(() => {
-    if (selectedMemoryIndex === null) return
+    if (selectedMemoryIndex === null || isClosing) return
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setSelectedMemoryIndex(null)
+        closeLightbox()
       } else if (e.key === 'ArrowRight') {
-        setSelectedMemoryIndex((prev) => (prev !== null ? (prev + 1) % memoriesData.length : null))
+        setSelectedMemoryIndex((prev) => {
+          if (prev === null) return null
+          const nextIdx = (prev + 1) % memoriesData.length
+          updateOriginForIndex(nextIdx)
+          return nextIdx
+        })
       } else if (e.key === 'ArrowLeft') {
-        setSelectedMemoryIndex((prev) =>
-          prev !== null ? (prev - 1 + memoriesData.length) % memoriesData.length : null
-        )
+        setSelectedMemoryIndex((prev) => {
+          if (prev === null) return null
+          const prevIdx = (prev - 1 + memoriesData.length) % memoriesData.length
+          updateOriginForIndex(prevIdx)
+          return prevIdx
+        })
       }
     }
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [selectedMemoryIndex])
-
-  const openLightbox = (index: number) => {
-    setSelectedMemoryIndex(index)
-  }
-
-  const closeLightbox = () => {
-    setSelectedMemoryIndex(null)
-  }
-
-  const nextMemory = (e: React.MouseEvent) => {
-    e.stopPropagation()
-    setSelectedMemoryIndex((prev) => (prev !== null ? (prev + 1) % memoriesData.length : null))
-  }
-
-  const prevMemory = (e: React.MouseEvent) => {
-    e.stopPropagation()
-    setSelectedMemoryIndex((prev) =>
-      prev !== null ? (prev - 1 + memoriesData.length) % memoriesData.length : null
-    )
-  }
+  }, [selectedMemoryIndex, isClosing])
 
   return (
     <div className="ultimate-page-wrapper" aria-label="Ultimate Frisbee Scrapbook">
@@ -406,6 +591,7 @@ function UltimatePage() {
           {memoriesData.map((item, index) => (
             <article
               key={item.id}
+              data-memory-id={item.id}
               className={`scrapbook-polaroid ${item.isCenterpiece ? 'is-centerpiece' : ''}`}
               style={{
                 left: item.desktopStyle.left,
@@ -415,11 +601,11 @@ function UltimatePage() {
                 zIndex: item.desktopStyle.zIndex,
                 transform: `rotate(${item.desktopStyle.rotate})`,
               }}
-              onClick={() => openLightbox(index)}
+              onClick={(e) => openLightbox(index, e)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault()
-                  openLightbox(index)
+                  openLightbox(index, e)
                 }
               }}
               tabIndex={0}
@@ -429,7 +615,7 @@ function UltimatePage() {
             >
               <div className="polaroid-img-wrap">
                 <picture>
-                  <source srcSet={item.webp} type="image/webp" />
+                  {/* <source srcSet={item.webp} type="image/webp" /> */}
                   <img
                     src={item.png}
                     alt={item.alt}
@@ -472,12 +658,13 @@ function UltimatePage() {
         {memoriesData.map((item, index) => (
           <article
             key={`mobile-${item.id}`}
+            data-memory-id={item.id}
             className={`mobile-card ${index % 2 === 0 ? 'tilt-left' : 'tilt-right'}`}
-            onClick={() => openLightbox(index)}
+            onClick={(e) => openLightbox(index, e)}
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault()
-                openLightbox(index)
+                openLightbox(index, e)
               }
             }}
             tabIndex={0}
@@ -487,7 +674,7 @@ function UltimatePage() {
           >
             <div className="mobile-card-img-wrap">
               <picture>
-                <source srcSet={item.webp} type="image/webp" />
+                {/* <source srcSet={item.webp} type="image/webp" /> */}
                 <img
                   src={item.png}
                   alt={item.alt}
@@ -506,16 +693,21 @@ function UltimatePage() {
         ))}
       </div>
 
-      {/* Interactive Lightbox Modal */}
+      {/* Interactive Lightbox Modal - Figma Node 144:8 Card Frame */}
       {activeMemory && (
         <div
+          ref={backdropRef}
           className="lightbox-backdrop"
           onClick={closeLightbox}
           role="dialog"
           aria-modal="true"
           aria-label={activeMemory.title}
         >
-          <div className="lightbox-dialog" onClick={(e) => e.stopPropagation()}>
+          <div
+            ref={dialogRef}
+            className="lightbox-dialog"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               type="button"
               className="lightbox-close-btn"
@@ -526,9 +718,10 @@ function UltimatePage() {
             </button>
 
             <div className="lightbox-media">
+              {/* Floating Navigation Buttons directly on the image */}
               <button
                 type="button"
-                className="lightbox-nav-btn prev"
+                className="lightbox-floating-nav-btn prev"
                 onClick={prevMemory}
                 aria-label="Previous memory"
               >
@@ -536,13 +729,13 @@ function UltimatePage() {
               </button>
 
               <picture>
-                <source srcSet={activeMemory.webp} type="image/webp" />
+                {/* <source srcSet={activeMemory.webp} type="image/webp" /> */}
                 <img src={activeMemory.png} alt={activeMemory.alt} className="lightbox-img" />
               </picture>
 
               <button
                 type="button"
-                className="lightbox-nav-btn next"
+                className="lightbox-floating-nav-btn next"
                 onClick={nextMemory}
                 aria-label="Next memory"
               >
@@ -551,13 +744,7 @@ function UltimatePage() {
             </div>
 
             <div className="lightbox-info">
-              <div className="lightbox-tag-row">
-                <span className="lightbox-handwritten-tag">{activeMemory.tag}</span>
-                <span className="lightbox-counter">
-                  {(selectedMemoryIndex ?? 0) + 1} / {memoriesData.length}
-                </span>
-              </div>
-              <h2 className="lightbox-title">{activeMemory.title}</h2>
+              <h2 className="lightbox-title">{activeMemory.tag}</h2>
               <p className="lightbox-desc">{activeMemory.description}</p>
             </div>
           </div>

@@ -22,9 +22,9 @@
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  max-width: 1650px;
+  max-width: 1280px;
   margin-bottom: 2rem;
-  padding: 0 0.5rem;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -49,7 +49,7 @@
    ========================================================================== */
 .photography-gallery {
   width: 100%;
-  max-width: 1650px;
+  max-width: 1280px;
   display: flex;
   flex-direction: column;
   gap: 4.375rem; /* ~70px proportional gap between rows in Figma */

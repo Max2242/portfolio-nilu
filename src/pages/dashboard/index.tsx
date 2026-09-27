@@ -1,5 +1,5 @@
-import nilakshiHeroWebp from '../../assets/nilakshi-hero.webp'
-import nilakshiHeroPng from '../../assets/nilakshi-hero.png'
+// import nilakshiHeroWebp from '../../assets/nilakshi-hero.webp'
+import nilakshiHeroPng from '../../assets/nilakshi-hero1.png'
 import './dashboard.css'
 
 function DashboardPage() {
@@ -24,7 +24,7 @@ function DashboardPage() {
       <div className="hero-image-wrapper">
         <div className="hero-portrait-card">
           <picture>
-            <source srcSet={nilakshiHeroWebp} type="image/webp" />
+            {/* <source srcSet={nilakshiHeroWebp} type="image/webp" /> */}
             <img
               src={nilakshiHeroPng}
               alt="Nilakshi smiling outdoors"

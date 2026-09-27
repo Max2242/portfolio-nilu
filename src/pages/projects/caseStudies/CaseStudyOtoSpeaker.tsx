@@ -57,6 +57,8 @@ export const CaseStudyOtoSpeaker: React.FC = () => {
       {/* 3. Narrowing Down Section - Full uncropped sketches with overlapping pill badge */}
       <section className="cs-section cs-narrowing-section">
         <div className="cs-narrowing-container">
+          <h2 className="cs-narrowing-title">Narrowing down</h2>
+
           <picture>
             <source srcSet={sketchesNarrowingWebp} type="image/webp" />
             <img
